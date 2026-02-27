@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Quiet Parts</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f4e8;
+      color: #333;
+      line-height: 1.8;
+      background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #5d2906;
+      font-family: 'Times New Roman', serif;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .copyright {
+      text-align: center;
+      margin: 30px 0;
+      font-style: italic;
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+
+    .author-name {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #8B4513;
+      margin-bottom: 30px;
+      font-family: 'Times New Roman', serif;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    .poem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .poem-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      border: 1px solid #d4b483;
+    }
+
+    .poem-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .poem-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 1px solid #d4b483;
+    }
+
+    .poem-card-title {
+      padding: 18px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      color: #5d2906;
+      font-family: 'Times New Roman', serif;
+    }
+
+    .poem-full {
+      display: none;
+      background: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      border: 1px solid #d4b483;
+      margin-top: 30px;
+    }
+
+    .poem-full.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .poem-full img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 25px;
+      border: 1px solid #d4b483;
+    }
+
+    .poem-text {
+      white-space: pre-wrap;
+      margin: 25px 0;
+      font-size: 1.1rem;
+      line-height: 2;
+      text-align: center;
+      font-style: italic;
+      user-select: none;
+    }
+
+    .poem-copyright {
+      text-align: center;
+      margin-top: 20px;
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .btn {
+      background: #8B4513;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Georgia', serif;
+    }
+
+    .btn:hover {
+      background: #A0522D;
+    }
+
+    .like-comment {
+      margin-top: 40px;
+      border-top: 1px solid #d4b483;
+      padding-top: 25px;
+    }
+
+    .fulani-pattern {
+      height: 20px;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="20" viewBox="0 0 100 20"><path d="M0,10 Q25,20 50,10 T100,10" fill="none" stroke="%238B4513" stroke-width="2"/></svg>');
+      margin: 30px 0;
+      opacity: 0.7;
+    }
+
+    .whatsapp-share-text {
+      text-align: center; 
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .button-row {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+      
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      .poem-full {
+        padding: 25px;
+      }
+      
+      .whatsapp-share-text {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div id="poemList">
+    <h1>The Quiet Parts</h1>
+    <div class="fulani-pattern"></div>
+    <div class="author-name">A Collection of Poems by Hadiza Bagudu</div>
+    <div class="fulani-pattern"></div>
+    
+    <div class="poem-grid">
+      
+      <div class="poem-card" onclick="showPoem(0)">
+        <img src="https://cdn.pixabay.com/photo/2016/11/18/22/58/stars-1837306_1280.jpg" alt="Cosmic Dance">
+        <div class="poem-card-title">COSMIC DANCE</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(1)">
+        <img src="https://cdn.pixabay.com/photo/2024/03/21/16/21/man-8648127_1280.jpg" alt="After the Storm">
+        <div class="poem-card-title">AFTER THE STORM</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(2)">
+        <img src="https://cdn.pixabay.com/photo/2020/07/22/03/11/black-horse-5427865_1280.jpg" alt="Flawless Beauty">
+        <div class="poem-card-title">FLAWLESS BEAUTY</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(3)">
+        <img src="https://cdn.pixabay.com/photo/2021/03/02/12/20/mountains-6062271_1280.jpg" alt="The Quiet Parts">
+        <div class="poem-card-title">THE QUIET PARTS</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(4)">
+        <img src="https://cdn.pixabay.com/photo/2021/07/27/23/56/flower-6497984_1280.jpg" alt="Blue Flower">
+        <div class="poem-card-title">BLUE FLOWER</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(5)">
+        <img src="https://cdn.pixabay.com/photo/2024/08/27/16/50/ai-generated-9002050_1280.png" alt="Unbroken and Unbowed">
+        <div class="poem-card-title">UNBROKEN AND UNBOWED</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(6)">
+        <img src="https://cdn.pixabay.com/photo/2018/01/04/19/43/rose-3061486_1280.jpg" alt="Rose">
+        <div class="poem-card-title">ROSE</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(7)">
+        <img src="https://cdn.pixabay.com/photo/2024/05/11/09/50/inside-8754427_1280.png" alt="Full Moon">
+        <div class="poem-card-title">FULL MOON</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(8)">
+        <img src="https://assets.bonappetit.com/photos/60ef61ea1cd5ffae42c1d614/16:9/w_1920,c_limit/Garri.jpg" alt="Garri">
+        <div class="poem-card-title">GARRI</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(9)">
+        <img src="https://i.pinimg.com/736x/e7/95/81/e7958142b5a4135a5494ceecd6016fb0.jpg" alt="Laila (Night's Beauty)">
+        <div class="poem-card-title">LAILA (NIGHT'S BEAUTY)</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(10)">
+        <img src="https://cdn.pixabay.com/photo/2022/01/16/14/20/cat-6942183_1280.jpg" alt="Blue Eyes">
+        <div class="poem-card-title">BLUE EYES</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(11)">
+        <img src="https://i.pinimg.com/1200x/36/b0/30/36b03058f0f03b81f6de40234720dacb.jpg" alt="MY Son">
+        <div class="poem-card-title">MY SON</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(12)">
+        <img src="https://i.pinimg.com/736x/ba/85/6a/ba856a6272b3da9eda5b2c0026561b23.jpg" alt="Abuja City of a Poet">
+        <div class="poem-card-title">ABUJA CITY</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(13)">
+        <img src="https://cdn.pixabay.com/photo/2022/02/18/19/50/mountain-7021372_1280.jpg" alt="Echoes of the Forgotten">
+        <div class="poem-card-title">ECHOES OF THE FORGOTTEN</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(14)">
+        <img src="https://i.pinimg.com/1200x/e7/97/f6/e797f6bffc06acf9d37336325ec96dd8.jpg" alt="Sinister">
+        <div class="poem-card-title">SINISTER</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(15)">
+        <img src="https://i.pinimg.com/1200x/6f/45/e9/6f45e91bf2069d243bf8bb33f622a8fa.jpg" alt="Heavy is the burden">
+        <div class="poem-card-title">HEAVY IS THE BURDEN</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(16)">
+        <img src="https://i.pinimg.com/1200x/9a/ae/ba/9aaebad3b59b234dd7f6b5a27ef32b9f.jpg" alt="Ticking Clock">
+        <div class="poem-card-title">TICKING CLOCK</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(17)">
+        <img src="https://i.pinimg.com/736x/ee/5c/fe/ee5cfee552a61825f69cab50b91c6977.jpg" alt="Sometimes">
+        <div class="poem-card-title">SOMETIMES</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(18)">
+        <img src="https://i.pinimg.com/736x/94/80/e8/9480e821a3e4f2cabef5c4d074aa23cd.jpg" alt="Veiled Beauty">
+        <div class="poem-card-title">VEILED BEAUTY</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(19)">
+        <img src="https://i.pinimg.com/1200x/69/17/ac/6917ac747a8f07b87e760f5e85ba95b8.jpg" alt="Travel While You are Young">
+        <div class="poem-card-title">TRAVEL WHILE YOU ARE YOUNG</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(20)">
+        <img src="https://i.pinimg.com/736x/c4/05/61/c40561b9bf574f75b15adc6ed17ac4ee.jpg" alt="Solace">
+        <div class="poem-card-title">SOLACE</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(21)">
+        <img src="https://i.pinimg.com/1200x/22/17/be/2217bec36d1b9fe4b8ff45586e3dbbbd.jpg" alt="Creeping Darkness">
+        <div class="poem-card-title">CREEPING DARKNESS</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(22)">
+        <img src="https://i.pinimg.com/1200x/c3/6f/c8/c36fc857de31cc1f2fe4e42adef151fd.jpg" alt="Solitude">
+        <div class="poem-card-title">SOLITUDE</div>
+      </div>
+       <div class="poem-card" onclick="showPoem(23)">
+        <img src="https://i.pinimg.com/1200x/70/1b/c4/701bc4ac53750a4e38390a8064dc3725.jpg" alt="City Lights">
+        <div class="poem-card-title">CITY LIGHTS</div>
+      </div>
+      <div class="poem-card" onclick="showPoem(24)">
+        <img src="https://i.pinimg.com/1200x/7c/40/ef/7c40efcb71be41418893b50b46de477c.jpg" alt="When The One You Love doesn't Love You Back">
+        <div class="poem-card-title">WHEN THE ONE YOU LOVE DOESN'T LOVE YOU BACK</div>
+      </div>
+
+     <div class="poem-card" onclick="showPoem(25)">
+        <img src="https://i.pinimg.com/736x/76/ed/70/76ed70d0b63658a42ceb42aac9262b9c.jpg" alt="Tread Carefully!">
+        <div class="poem-card-title">TREAD CAREFULLY!</div>
+      </div>
+    <div class="poem-card" onclick="showPoem(26)">
+        <img src="https://i.pinimg.com/736x/b8/03/8a/b8038a896f12676b86de9f6b948be535.jpg" alt="Talk is Cheap">
+        <div class="poem-card-title">TALK IS CHEAP</div>
+      </div>
+<div class="poem-card" onclick="showPoem(27)">
+        <img src="https://i.pinimg.com/1200x/e3/8e/5d/e38e5d87f75308fec800dcd56e08ba60.jpg" alt="Introvert">
+        <div class="poem-card-title">INTROVERT</div>
+      </div>
+<div class="poem-card" onclick="showPoem(28)">
+        <img src="https://i.pinimg.com/736x/4a/a3/4b/4aa34b2c71cc41e3d7ed8a4c9f6ae601.jpg" alt="A Beautiful Morning">
+        <div class="poem-card-title">A BEAUTIFUL MORNING</div>
+      </div>
+<div class="poem-card" onclick="showPoem(29)">
+        <img src="https://i.pinimg.com/736x/34/d6/86/34d68654b5b6bec5fb5b9cc227545e64.jpg" alt="Salahuddin Ayyubi">
+        <div class="poem-card-title">SALAHUDDIN AYYUBI</div>
+      </div>
+<div class="poem-card" onclick="showPoem(30)">
+        <img src="https://i.pinimg.com/736x/b8/7a/19/b87a19d3d909c7fe2a7af00b1abf27a0.jpg" alt="Permission to be Happy">
+        <div class="poem-card-title">PERMISSION TO BE HAPPY</div>
+      </div>
+<div class="poem-card" onclick="showPoem(31)">
+        <img src="https://i.pinimg.com/originals/41/b2/ce/41b2ceba50c5ca3627851cc931e298a8.gif" alt="My Blessing">
+        <div class="poem-card-title">MY BLESSING</div>
+      </div>
+
+
+
+
+    </div>
+
+    <div class="copyright">© 2024 Hadiza Bagudu. All rights reserved.</div>
+  </div>
+
+  <!-- Poem Pages -->
+  <div id="poemContainer"></div>
+</div>
+
+<script>
+  // Enhanced content protection
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    alert('Respect the poet\'s craft - copying is prohibited.');
+  });
+  
+  // Prevent text selection
+  document.addEventListener('selectstart', function(e) {
+    e.preventDefault();
+  });
+  
+  // Prevent drag and drop of images
+  document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG') {
+      e.preventDefault();
+    }
+  });
+  
+  // Prevent keyboard shortcuts (Ctrl+C, Ctrl+U, etc.)
+  document.addEventListener('keydown', function(e) {
+    // Disable F12 (DevTools), Ctrl+U (View Source), Ctrl+Shift+I (DevTools)
+    if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+        (e.ctrlKey && e.shiftKey && e.key === 'C') || (e.ctrlKey && e.key === 'u')) {
+      e.preventDefault();
+      alert('Respect the poet\'s craft - this action is disabled.');
+    }
+  });
+
+  const poems = [
+
+    {
+      title: "COSMIC DANCE",
+      image: "https://cdn.pixabay.com/photo/2016/11/18/22/58/stars-1837306_1280.jpg",
+      text: `The stars glide through the night in a celestial ballet.
+
+Galaxies spin the sky in brilliant shades.
+
+Colorful tales from Nebula's pallet,
+
+Cosmic dance, in a stunning display!
+
+ 
+
+Astral jewels orbit, a heavenly stride.
+
+Mysteries whispered in the universe wide.
+
+Endless wonder in each breathtaking sight,
+
+Unveiling the universe's limitless might.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "AFTER THE STORM",
+      image: "https://cdn.pixabay.com/photo/2024/03/21/16/21/man-8648127_1280.jpg",
+      text: `"Suddenly, I began to smile again.
+
+Finally, my laughter returned.
+
+Even though it might take a while,
+
+Eventually, I will trust again."`,
+      copyright: "© 2024 Hadiza Bagudu"
+    },
+    {
+      title: "FLAWLESS BEAUTY",
+      image: "https://cdn.pixabay.com/photo/2020/07/22/03/11/black-horse-5427865_1280.jpg",
+      text: `In quiet whispers, a legend of grace,
+
+Flawless radiance, time can't erase.
+
+A painted masterpiece, colors that entice,
+
+Each hue and shade, love's own design.
+
+ 
+
+Unmasking dreams with every gaze,
+
+Sophistication in every brief step.
+
+A harmonious blend of soul and essence
+
+Flawless beauty, a priceless presence.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "THE QUIET PARTS",
+      image: "https://cdn.pixabay.com/photo/2021/03/02/12/20/mountains-6062271_1280.jpg",
+      text: `In the serenity of your inner being,
+
+Where the heart and mind are unbound.
+
+Pay heed to the whispers of your spirit.
+
+For in the quiet, truth is found.
+
+ 
+
+Cherish yourself wholeheartedly, 
+
+And paint a masterpiece of love.
+
+Embrace the tranquillity and allow it to exist,
+
+For in the quiet, secrets unfold.
+
+ 
+
+Take a moment to breath, and let peace reign.
+
+Happiness resides in the hush,
+
+So, welcome the quiet, my dear friend.
+
+And feel the calm in your soul!`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "BLUE FLOWER",
+      image: "https://cdn.pixabay.com/photo/2021/07/27/23/56/flower-6497984_1280.jpg",
+      text: `Up on a hill where the skies are grey,
+
+A lonesomen blue flower swayed and lay,
+
+Its petals wilted, its spirits low,
+
+A melancholic scene for sure.
+
+ 
+
+The bloom, once teeming with vitality,
+
+Unblemished, an azure beauty to see,
+
+Its tired crown now hung so low,
+
+As dewdrops weep and freely flow.
+
+ 
+
+The wind mourns with each and every breath,
+
+As the flower inches closer to its death.
+
+Nevermore to bask in the sun's warm embrace,
+
+Like many, its journey has come to an end.
+
+ 
+
+So, let us mourn this flower blue,
+
+And bid adieu to this beauty, rare and true.
+
+For in its passing, a lesson to be learned,
+
+That beauty fades, but life will carry on.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "UNBROKEN AND UNBOWED",
+      image: "https://cdn.pixabay.com/photo/2024/08/27/16/50/ai-generated-9002050_1280.png",
+      text: `Amidst the chaos of war and destruction,
+Where fear is rampant and blood is shed,
+Brave souls stand with unbroken spirit,
+As the world around them is decimated.
+ 
+
+They face the storm, unbroken and unbowed,
+Through the darkest of hours, they stood strong.
+Through sorrow and agony, their courage is found,
+Guided by their unwavering faith in God.
+ 
+
+War's cold touch, can't steal their grace
+Standing tall and firm on a sacred base
+Deep within them, the power to mend,
+Brave souls, unbroken and unbowed to the end.`,
+      copyright: "© 2024 Hadiza Bagudu"
+    },
+    {
+      title: "ROSE",
+      image: "https://cdn.pixabay.com/photo/2018/01/04/19/43/rose-3061486_1280.jpg",
+      text: `Satin-skinned, crimson beauty,
+
+Delicate to the touch,
+
+Smooth and lustrous,
+
+Silken petals caress the senses.
+
+ 
+
+Its fragrance fills the air,
+
+Ethereal in its beauty,
+
+Dancing with grace,
+
+Tender petals of elegance.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "FULL MOON",
+      image: "https://cdn.pixabay.com/photo/2024/05/11/09/50/inside-8754427_1280.png",
+      text: `Full moon so fair, so bright!
+A silver jewel in the sky,
+You illuminate the darkest night,
+With a warm and gentle light.
+
+
+Your presence calms my troubled heart,
+With memories of a love far apart,
+A dream of peace and solace.
+A promise to be united at last.
+
+
+A traveler's guide a constant friend,
+Through every twist and bend,
+A reprieve in times of strain,
+A loyal companion to the end
+
+
+Oh moon, my love transient,
+I lose myself in your warm embrace.
+A soothing relief for every pain
+A vision of beauty and grace`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "GARRI",
+      image: "https://assets.bonappetit.com/photos/60ef61ea1cd5ffae42c1d614/16:9/w_1920,c_limit/Garri.jpg",
+      text: `A taste of home,
+
+A symbol of our land,
+
+A humble dish,
+
+Comfort in a bowl.
+
+ 
+
+A staple we all love,
+
+Day and night.
+
+Satisfying and nourishing,
+
+Hot or cold.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "LAILA (NIGHT'S BEAUTY)",
+      image: "https://i.pinimg.com/736x/e7/95/81/e7958142b5a4135a5494ceecd6016fb0.jpg",
+      text: `Laila, night's beauty,
+
+Your beauty is beyond compare,
+
+You embody the night,
+
+Filling my heart with care.
+
+ 
+
+Your eyes are bright like the stars,
+
+Your lips are soft like a rose,
+
+Your heart, so gentle and kind,
+
+Calms my trouble woes.
+
+ 
+
+Laila night's beauty,
+
+Your beauty I cannot deny,
+
+You embody the night,
+
+My love for you will never die.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "BLUE EYES",
+      image: "https://cdn.pixabay.com/photo/2022/01/16/14/20/cat-6942183_1280.jpg",
+      text: `The prettiest eyes I have ever seen.
+
+In their gaze, my heart's held fast.
+
+
+From the depth of the oceans unleashed,
+
+Like two sapphires trapped in glass.
+
+Gleaming with true love's eternal sheen,
+
+Of a natural beauty unsurpassed.
+
+The promise of an endless dream,
+
+And a love that's bound to last.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "MY SON",
+      image: "https://i.pinimg.com/1200x/36/b0/30/36b03058f0f03b81f6de40234720dacb.jpg",
+      text: ` Your hugs and kisses make me feel so blessed,
+ Your presence in my life is a true gift,
+ Your innocence and curiosity,
+ Your courage and strength,
+ Your intelligence and wit,
+ Your kindness and compassion,
+ Your spirit and your heart,
+ Fill me with so much love and pride,
+ My son, you are my everything.
+`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "ABUJA CITY",
+      image: "https://i.pinimg.com/736x/ba/85/6a/ba856a6272b3da9eda5b2c0026561b23.jpg",
+      text: `In the heart of Nigeria lies a city so grand,
+Abuja, the capital, so beautiful and so vast.
+With towering skyscrapers, and bustling streets,
+A vibrant culture, that's sure to meet.
+
+From the green rolling hills to the modern skyline,
+Abuja's beauty is a sight so sublime.
+A melting pot of culture and rich history,
+A city that's filled with so much mystery.
+
+The National Mosque, with its majestic dome,
+Is a symbol of faith, and a spiritual home.
+The National Stadium, with its grandeur and might,
+Is where we come together to cheer and unite.•
+From the shopping malls to the food bazaars,
+Abuja has it all, with no shortage of stars.
+A place where everyone, can find their niche,
+A city that's full of life, and never a glitch.
+
+So tick-tock goes the clock, as time keeps on moving,
+But in Abuja, life's a journey worth pursuing.
+With each step we take, we leave our mark,
+And in Abuja, we create a legacy so stark.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "ECHOES OF THE FORGOTTEN",
+      image: "https://cdn.pixabay.com/photo/2022/02/18/19/50/mountain-7021372_1280.jpg",
+      text: `Whispers of legends dwell in the shadows,
+
+Forgotten tales buried in the past.
+
+A bygone era, its brilliance now lost,
+
+Quietly moving through the corridors of time.
+
+Remnants of the past, faint but clear. 
+
+ 
+
+Cherished memories, once precious and close,
+
+Sounds of laughter, now distant and hushed.
+
+On the canvas of time, they quietly sketch.
+
+Unspoken tales, dreams cast away,
+
+Echoes of the forgotten, a treasure to unearth.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "SINISTER",
+      image: "https://i.pinimg.com/1200x/e7/97/f6/e797f6bffc06acf9d37336325ec96dd8.jpg",
+      text: `Beneath the moon's sinister glow,
+Dark secrets whisper, hidden below.
+Shadows dance with a haunting grace,
+Unveiling truths in that eerie space.
+A twisted tale of night's embrace,
+Sinister beauty in every trace.
+Mysteries deep, a world within,
+Where darkness and enigma begin.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "HEAVY IS THE BURDEN",
+      image: "https://i.pinimg.com/1200x/6f/45/e9/6f45e91bf2069d243bf8bb33f622a8fa.jpg",
+      text: `A feather, light and airy,
+ A symbol of flight and grace.
+ But what if it was heavy,
+ Would it still keep its place?
+ What if a feather, once so light,
+ Became a weight too much to bear?
+ Would it fall from lofty heights,
+ And sink into the air?
+ Perhaps it would drift slowly down,
+ To rest upon the ground.
+ A thing of beauty, still and proud,
+ But its flight forever bound.
+ Yet the feather holds a special power,
+ For it reminds us that even when life’s burden seems to tower,
+ We can still find strength within,
+ And rise above our weight.
+ For even a feather heavy can still find a way to elevate.
+ It teaches us to persevere and carry on with all our might.
+ For heavy is the burden we bear,
+ But our spirit can still take flight.
+ So let us hold our heads up high,
+ And face each day with grace.
+ For though our burdens may be heavy,
+ We can still find our rightful place.
+ As we journey through this life,
+ With its twists and turns and bends,
+ Let us remember the weight we carry,
+ Is but a feather in the end.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "TICKING  CLOCK",
+      image: "https://i.pinimg.com/1200x/9a/ae/ba/9aaebad3b59b234dd7f6b5a27ef32b9f.jpg",
+      text: `Ticking clock, don't you ever stop,
+Marking the moments as they pass by.
+Each second a treasure to be held,
+For time is a gift we can't deny.
+
+Tick-tock, the sound echoes in my ear,
+As the hours slip away from me.
+Life is a journey, a precious gift,
+But we can't hold it eternally.
+
+Days pass like whispers in the wind,
+As the years melt away like snow.
+And in the end, what will remain,
+Are the memories we choose to sow.
+
+So let us make the most of time,
+And cherish every single day.
+For every moment that we waste,
+Is a priceless gift thrown away.
+
+Tick-tock, the clock keeps ticking on,
+As we journey through life's winding road.
+But with each step, we can make our mark,
+And leave behind a legacy to behold.
+
+Ticking clock, keep ticking away,
+For time is a gift we can't ignore.
+Let us use every moment we're given,
+And make this life worth living for.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "SOMETIMES",
+      image: "https://i.pinimg.com/736x/ee/5c/fe/ee5cfee552a61825f69cab50b91c6977.jpg",
+      text: `Sometimes life is a flowing river, so calm and tranquil.
+Other times, it is a stormy sea drowning sailors and their ships.
+
+Sometimes, life is full of laughter, with happiness that overflows.
+Other times, it is a lesson, teaching and helping us grow.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "VEILED BEAUTY",
+      image: "https://i.pinimg.com/736x/94/80/e8/9480e821a3e4f2cabef5c4d074aa23cd.jpg",
+      text: `A hijab full of grace,
+Your beauty is hidden but in its place,
+A radiance shines from within,
+A light that brightens from your skin.
+
+The beauty that we cannot see,
+It's more than what meets the eye to be,
+It's the kindness and love that you exude,
+That makes your spirit beautiful and renewed.
+
+The hijab, it serves to veil,
+A symbol of strength that cannot fail,
+For in its embrace, you find your power,
+To live with purpose and shine every hour.
+
+Your face, it beams with a light,
+That brings joy and peace to the sight,
+It's a reflection of your soul's beauty,
+A beacon of hope and love for all to see.
+
+So, wear your hijab with pride,
+And let your radiance shine inside,
+For in your grace, we find our way,
+To love and kindness every day.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "TRAVEL WHILE YOU ARE YOUNG",
+      image: "https://i.pinimg.com/1200x/69/17/ac/6917ac747a8f07b87e760f5e85ba95b8.jpg",
+      text: `Travel while
+you're young, dear friend,
+Let your spirit roam and bend,
+Explore new lands and sights unseen,
+Discover wonders yet to glean.
+
+Experience things you've never known,
+Expand your mind, let it be blown,
+Embrace the cultures that you find,
+Let them leave a mark on your mind.
+
+Taste the foods you've never tried,
+Let your palate be your guide,
+Feel the wind and let it blow,
+Let it take you where you don't know.
+
+Meet new people, make new friends,
+Discover how their story blends,
+Share your own and let them see,
+The beauty of your own journey.
+
+Travel while you're young, my dear,
+Don't wait until your path is clear,
+For life is fleeting, time is short,
+And there's a world of wonder to be sought.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "SOLACE",
+      image: "https://i.pinimg.com/736x/c4/05/61/c40561b9bf574f75b15adc6ed17ac4ee.jpg",
+      text: `the sun sets on what once was,
+ A feeling of loss settles in.
+ Memories of the past flood the mind,
+ And a sense of sadness begins.
+
+ But even as the darkness falls,
+ A glimmer of hope appears.
+ For with each passing moment,
+ The dawn of a new day nears.
+
+ As the sun rises in the east,
+ A sense of happiness grows.
+ Newfound joys and possibilities,
+ A future that overflows.
+
+ And though the past may still linger,
+ Its hold on us begins to fade.
+ For with each sunrise that we witness,
+ A new life we have made.
+
+ So, let the sunset be a reminder,
+ Of all that we have lost.
+ But let the sunrise be a beacon,
+ Of all that we have gained at last.
+`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "CREEPING DARKNESS",
+      image: "https://i.pinimg.com/1200x/22/17/be/2217bec36d1b9fe4b8ff45586e3dbbbd.jpg",
+      text: `Creeping darkness comes at night,
+Invading spaces, dimming light,
+A weight that is heavy on the chest,
+A force that robs of peace and rest.
+
+It slowly crawls and takes its hold,
+A thief that steals the joy of the old,
+And leaves a void, an emptiness,
+A constant ache, a deep distress.
+
+It muffles laughter, dims the sun,
+Takes away the joy of fun,
+And in its place, it plants a seed,
+Of sorrow, pain, and endless need.
+
+Creeping darkness, oh how it creeps,
+Into our minds, our souls, it seeps,
+But hope remains, a shining light,
+That drives away the gloom of night.
+
+Reach out for help, don’t suffer alone,
+For there are hands to hold you home,
+And in the end, the sun will rise,
+To chase away the darkened skies.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "SOLITUDE",
+      image: "https://i.pinimg.com/1200x/c3/6f/c8/c36fc857de31cc1f2fe4e42adef151fd.jpg",
+      text: `My best friend is solitude,
+A constant companion, kind and true,
+Always there when I need a break,
+From the hustle and bustle, the noise and shake.
+
+With solitude, I find my peace,
+A moment to breathe, a chance to
+release, The worries and fears that
+plague my mind, And leave me feeling lost and blind.
+
+Solitude listens without judgment or voice,
+Giving me space to make my own choice,
+To find the answers I seek inside,
+And discover the truths I cannot hide.
+
+It's not a lonely place, as some may say,
+But rather, a sanctuary, where I can play,
+With thoughts and dreams that take me far,
+And help me to become who I truly are.
+
+So I cherish my friend solitude,
+For all the peace and joy it's imbued,
+And i am grateful for the space to grow,
+Into the person, I want to know.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "CITY LIGHTS",
+      image: "https://i.pinimg.com/1200x/70/1b/c4/701bc4ac53750a4e38390a8064dc3725.jpg",
+      text: `Amidst the concrete jungle, the stars below ignite,
+City lights that gleam so bright, a wondrous sight.
+
+These beacons of civilisation, a constellation of their own,
+A symphony of chaos, a harmony yet unknown.
+
+In the city's hustle and bustle, a heartbeat of its own,
+Amidst the noise and chaos, a serenade to be shown.
+
+Oh, stars below, how you shine so bright,
+In the darkest of nights, you are the guiding light.
+
+A thousand tales of love and heartache,
+In the shadows of skyscrapers, secrets do they make.
+
+The city, like a lover, tempts and draws us near,
+With the promise of adventure, and joy, and fear.
+
+And as we wander through the city's endless streets,
+The stars below, they guide our weary feet.
+
+Oh, dear, how you perceived the grace of the city's sight,
+A luminous mirroring of the cosmos above, in this metropolis delight.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "WHEN THE ONE YOU LOVE DOESN'T LOVE YOU BACK",
+      image: "https://i.pinimg.com/1200x/7c/40/ef/7c40efcb71be41418893b50b46de477c.jpg",
+      text: `When the one you love doesn't love you back
+And the thought of that makes you sad.
+
+And you feel the weight of the world on your heart,
+And your hopes and dreams fades to black.
+
+Then you start to equate love with pain,
+Of all the words said and unsaid.
+
+Trying to hide the tears you've shed.
+A cruel game of desire and heartbreak.
+
+Even as you strive to move ahead,
+And leave behind the love you once felt.
+
+Deep within your heart, you understand,
+That love is everlasting and never a mistake!`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+{
+      title: "TREAD CAREFULLY!",
+      image: "https://i.pinimg.com/736x/76/ed/70/76ed70d0b63658a42ceb42aac9262b9c.jpg",
+      text: `When gentle breezes rustle the skies, I am tranquillity and joy.
+I am love and peace, my heart is kind.
+But be careful not to cross the line, you may not like what you find,
+The tranquil breeze becomes a tempest, and my eyes fiery ignite.
+
+As patience wanes, temper flairs,
+But steadfast I will remain, standing my ground.
+With resolute conviction, you will know you've erred.
+So, proceed with caution, I am kind but resolute.
+
+I stand my ground on what is right,
+But fear not, my dear friend,
+Underneath, my heart is full of love.
+Respect begets respect. You'll reap what you sew.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+{
+      title: "TALK IS CHEAP",
+      image: "https://i.pinimg.com/736x/b8/03/8a/b8038a896f12676b86de9f6b948be535.jpg",
+      text: `Be cautious of one who speaks with ease,
+Demands swift action, and is quick to please.
+But, takes no risk, no accountability, no venture,
+For such a man, you should take care.
+For risk and reward go hand in hand.
+One must not be afraid to take a stand.
+So those who talk yet don't back up with action,
+Are not fit to lead a crowd for sure.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+{
+      title: "INTROVERT",
+      image: "https://i.pinimg.com/1200x/e3/8e/5d/e38e5d87f75308fec800dcd56e08ba60.jpg",
+      text: `I'm an introvert; hear me say!
+My thoughts and feelings held at bay, 
+A quiet soul, who often shies,
+Away from crowds and people's eyes.
+
+But in my silence I find my strength,
+A space to think and go at length,
+To dive into my deepest mind,
+And leave the noise and chaos behind.
+
+I'm not one for the spotlight's glare,
+Or parties where I must beware,
+Of small talk and shallow chat,
+That leaves me feeling drained and flat.
+
+But in a book or a quiet space,
+I find my joy and my own pace,
+To explore the world and my own heart,
+And grow into the person I want.
+
+So please don't judge or try to change,
+The way I am, the way I arrange,
+My world to suit my introverted soul,
+For in my quietness, I feel whole.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+{
+      title: "A BEAUTIFUL MORNING",
+      image: "https://i.pinimg.com/736x/4a/a3/4b/4aa34b2c71cc41e3d7ed8a4c9f6ae601.jpg",
+      text: `The morning sun rises with grace,
+Birds sing melodies to embrace,
+
+Soft breeze whispers of love and peace,
+Flowers bloom in colors to seize,
+
+Embrace the beauty of the day,
+Love and joy, found in every way.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+{
+      title: "SALAHUDDIN AYYUBI",
+      image: "https://i.pinimg.com/736x/34/d6/86/34d68654b5b6bec5fb5b9cc227545e64.jpg",
+      text: `Salahuddin, a name that echoes through time,
+A warrior king, whose legend does shine,
+His courage and strength, a beacon of light,
+A symbol of honor, a gallant knight.
+
+Born in a land of turmoil and strife,
+He rose above, to lead a new life,
+A champion of justice, a defender of faith,
+His sword and heart, his people's safe.
+
+With skill and might, he fought on the field,
+A fearless warrior, who refused to yield,
+Against the Crusaders, he stood tall,
+A defender of his people, who answered the call.
+
+His victories were many, his enemies few,
+His heart filled with mercy, his soul true,
+His legacy lives on, in stories and lore,
+A hero of the East, forevermore.
+
+Salahuddin, a name that inspires,
+A hero of honor, whose heart inspires,
+His legacy lives on, in tales and song,
+A symbol of hope, forever strong.
+`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+    {
+      title: "PERMISSION TO BE HAPPY",
+      image: "https://i.pinimg.com/736x/b8/7a/19/b87a19d3d909c7fe2a7af00b1abf27a0.jpg",
+      text: `Give yourself permission to be happy,
+To let your heart soar and your spirit free.
+Don't let past sorrows or future worries,
+Keep you from living fully and feeling joyfully.
+
+Life is fleeting, and time flies fast,
+So cherish each moment and make it last.
+Find beauty in the simple things around,
+And let happiness in; let it be found.
+
+Give yourself permission to laugh and play,
+To dance and sing, to enjoy each day.
+Don't let the weight of the world hold you down,
+Find joy in the moments, and let happiness abound.
+
+Release the guilt and the shame that binds,
+Open your heart and free your mind.
+Choose happiness; let it be your guide,
+Embrace the journey and enjoy the ride.
+
+Give yourself permission to be happy,
+To embrace the present, let the past be.
+Live life with purpose, with love and light,
+And happiness will be your constant sight.
+`,
+      copyright: "© 2023 Hadiza Bagudu"
+    },
+{
+      title: "MY BLESSING",
+      image: "https://i.pinimg.com/originals/41/b2/ce/41b2ceba50c5ca3627851cc931e298a8.gif",
+      text: `Blessings of love, so sweet and true,
+ My heart is filled with gratitude.
+ Your presence in my life, so dear,
+ A blessing I hold so near.
+
+ Your love is like a gentle breeze,
+ It fills my heart with joy and ease.
+ Your kind words, so full of grace,
+ Bring me comfort in every place.
+
+ Your gentle touch, so warm and  kind,
+ Makes me feel so safe and fine.
+ Your smile, so bright and full of life,
+ Makes me feel so blessed and alive.`,
+      copyright: "© 2023 Hadiza Bagudu"
+    }
+
+
+  ]; 
+
+
+  const container = document.getElementById('poemContainer');
+
+  function showPoem(index) {
+    document.getElementById('poemList').style.display = 'none';
+    renderPoem(index);
+  }
+
+  function goBack() {
+    container.innerHTML = '';
+    document.getElementById('poemList').style.display = 'block';
+  }
+
+  function renderPoem(index) {
+    const poem = poems[index];
+    
+    container.innerHTML = `
+      <div class="poem-full active">
+        <h2>${poem.title}</h2>
+        <img src="${poem.image}" alt="${poem.title}">
+        <div class="poem-text">${poem.text}</div>
+        <div class="poem-copyright">${poem.copyright}</div>
+        
+        <div class="like-comment">
+          <p class="whatsapp-share-text">Let's chat about this poem on WhatsApp</p>
+          <button class="btn" style="width: 100%;" onclick="shareOnWhatsApp(${index})">Share on WhatsApp</button>
+        </div>
+
+        <div class="button-row">
+          <button class="btn" onclick="goBack()">← Back to Collection</button>
+          <button class="btn" onclick="showPoem(${(index - 1 + poems.length) % poems.length})">← Previous</button>
+          <button class="btn" onclick="showPoem(${(index + 1) % poems.length})">Next →</button>
+        </div>
+      </div>
+    `;
+  }
+
+  function shareOnWhatsApp(index) {
+    const poem = poems[index];
+    const text = `Check out this beautiful poem "${poem.title}" by Hadiza Bagudu:\n\n${poem.text}\n\n${poem.copyright}`;
+    const encodedText = encodeURIComponent(text);
+    // Using WhatsApp share URL instead of group link
+    window.open(`https://wa.me/?text=${encodedText}`);
+  }
+
+  // Load initial likes for all poems
+  window.addEventListener('load', function() {
+    for (let i = 0; i < poems.length; i++) {
+      const likeKey = `likes_${i}`;
+      if (!localStorage.getItem(likeKey)) {
+        localStorage.setItem(likeKey, '0');
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
+
+
+
