@@ -1,52 +1,1889 @@
-<!-- ===== LEAVE A REVIEW LINK ===== -->
-<div class="review-link-wrapper">
-  <a href="https://hadizab.github.io/Leave-a-Review/" class="review-link" target="_blank">
-    <i>Leave a Review</i>
-  </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Hadiza Bagudu | The Quiet Parts — Poetry Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a0f0a;
+            --accent: #b1451f;     /* richer, warmer accent */
+            --accent-deep: #8b2f0e;
+            --gold: #c68b55;        /* deeper gold */
+            --gold-dark: #a76f3e;
+            --rose: #bc6f6f;
+            --text: #000000;        /* pure black */
+            --light: #fefaf6;
+            --border: #e2d6cb;
+            --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--light);
+            color: #000000;         /* solid black base */
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Navigation — fully centered refined */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(254, 250, 246, 0.96);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.25s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0.9rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.4rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            transition: color 0.25s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--accent);
+            transition: width 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 26px;
+            height: 2px;
+            background: #000000;
+            transition: all 0.2s;
+            border-radius: 2px;
+        }
+
+        /* Hero — centered and elegant */
+        .hero {
+            margin-top: 74px;
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(125deg, #fff7f0 0%, #fef0e6 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: "✧";
+            font-size: 5rem;
+            color: rgba(197, 120, 68, 0.1);
+            position: absolute;
+            bottom: 1rem;
+            right: 2rem;
+            font-family: serif;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.8rem;
+            font-weight: 400;
+            color: #000000;
+            letter-spacing: 4px;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 500;
+            font-style: italic;
+            color: var(--accent);
+            margin-top: 0.25rem;
+        }
+
+        .divider {
+            width: 70px;
+            height: 1px;
+            background: var(--gold);
+            margin: 1.8rem auto 1.4rem;
+        }
+
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: #4a2a1a;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Main container — full centering */
+        .poems-container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 3rem 1.8rem 5rem;
+        }
+
+        .poem-card {
+            margin-bottom: 5rem;
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .poem-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* header + image + text: all perfectly centered */
+        .poem-header {
+            text-align: center;
+            width: 100%;
+            margin-bottom: 1.8rem;
+        }
+
+        .poem-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.3rem;
+            font-weight: 500;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 0.6rem;
+        }
+
+        .poem-image {
+            width: 100%;
+            max-width: 580px;
+            height: 250px;
+            object-fit: cover;
+            margin: 0.5rem auto 2rem;
+            display: block;
+            border-radius: 14px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.35s ease, box-shadow 0.3s;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .poem-image:hover {
+            transform: scale(1.01);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* REDUCED LINE SPACING — tighter poem body */
+        .poem-content {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.55rem;
+            line-height: 1.75;      /* reduced from 2.25 for better spacing */
+            color: #000000;
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto;
+            white-space: pre-line;
+            font-weight: 450;
+            background: transparent;
+            padding: 0.2rem 0;
+        }
+
+        .poem-content em {
+            font-style: italic;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.72rem;
+            font-family: 'Lato', sans-serif;
+            letter-spacing: 1px;
+            color: #7a5a44;
+            margin-top: 1.6rem;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .poem-divider {
+            width: 52px;
+            height: 1px;
+            background: #cfbcab;
+            margin: 2.4rem auto 0;
+            opacity: 0.8;
+        }
+
+        /* About section — fully centered and harmonious */
+        #about-author {
+            background: linear-gradient(135deg, #fef3ea 0%, #faeadf 100%);
+            padding: 5rem 2rem;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .about-container {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.9rem;
+            font-weight: 400;
+            color: #000000;
+            margin-bottom: 2.2rem;
+            letter-spacing: 1px;
+        }
+
+        .author-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.6rem;
+            border: 3px solid var(--gold-dark);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.12rem;
+            line-height: 1.9;
+            color: #000000;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .about-text p {
+            margin-bottom: 1.4rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: var(--accent-deep);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .social-links a:hover {
+            border-bottom-color: var(--accent);
+            color: #6b2b10;
+        }
+
+        footer {
+            background: var(--primary);
+            color: #ecd9cb;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Animations */
+        @keyframes gentleFade {
+            0% { opacity: 0; transform: translateY(18px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== RESPONSIVE — LARGER MOBILE TEXT & RICHER COLORS ========== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(254, 250, 246, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                padding: 1.8rem 2rem;
+                border-bottom: 1px solid var(--border);
+                gap: 1.4rem;
+                text-align: center;
+                box-shadow: 0 12px 20px rgba(0,0,0,0.05);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+                letter-spacing: 2px;
+            }
+
+            .hero h2 {
+                font-size: 1.4rem;
+            }
+
+            .poem-title {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+
+            /* CRITICAL: Larger poem text on mobile with comfortable but reduced spacing */
+            .poem-content {
+                font-size: 1.55rem !important;
+                line-height: 1.75 !important;   /* consistent tighter spacing */
+                max-width: 94%;
+                letter-spacing: 0.01em;
+                font-weight: 470;
+                color: #000000;
+            }
+
+            .poem-image {
+                max-width: 95%;
+                height: 220px;
+            }
+
+            .poems-container {
+                padding: 2rem 1.2rem 4rem;
+            }
+
+            .about-title {
+                font-size: 2.4rem;
+            }
+
+            .about-text {
+                font-size: 1.08rem;
+                line-height: 1.85;
+                color: #000000;
+            }
+
+            .copyright {
+                font-size: 0.68rem;
+            }
+        }
+
+        /* extra small devices — keep text large and legible with tighter lines */
+        @media (max-width: 480px) {
+            .poem-content {
+                font-size: 1.5rem !important;
+                line-height: 1.7 !important;
+                padding: 0 0.2rem;
+            }
+            .hero {
+                padding: 3.5rem 1rem 2.5rem;
+            }
+            .poem-title {
+                font-size: 1.8rem;
+            }
+            .about-text {
+                font-size: 1.02rem;
+            }
+        }
+
+        /* ensure any residual text is pure black */
+        body, p, .poem-content, .about-text, .hero h1, .poem-title, .nav-links a, .logo {
+            color: #000000;
+        }
+
+        .copyright, footer p {
+            color: #2f241d;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* additional polish for image & content consistency */
+        .poem-card:last-child .poem-divider {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<nav id="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">Hadiza Bagudu</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#poems">Poems</a></li>
+            <li><a href="#about-author">About</a></li>
+        </ul>
+        <div class="mobile-menu" id="mobileMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <h1>THE QUIET PARTS</h1>
+    <h2>A Collection of Poems</h2>
+    <div class="divider"></div>
+    <p class="subtitle">Words woven from the soul — verses that linger</p>
+</header>
+
+<main class="poems-container" id="poems">
+    <!-- Poem 1 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">COSMIC DANCE</h2>
+        </div>
+        <img src="https://cdn.pixabay.com/photo/2016/11/18/22/58/stars-1837306_1280.jpg" alt="Midnight sky" class="poem-image">
+        <div class="poem-content">
+
+The stars glide through the night in a celestial ballet.
+<br>
+Galaxies spin the sky in brilliant shades.
+<br>
+Colorful tales from Nebula's pallet,<br>
+Cosmic dance, in a stunning display!<br><br>
+
+Astral jewels orbit, a heavenly stride.
+<br>
+Mysteries whispered in the universe wide.
+<br>
+Endless wonder in each breathtaking sight,
+<br>
+Unveiling the universe's limitless might.<br>
+
+       </div>
+        <div class="copyright">©️ 2023 hadizabagudu.com</div>
+        <div class="poem-divider"></div>
+
+    </article>
+
+    <!-- Poem 2 -->
+    <article class="poem-card">
+        <div class="poem-header">
+             <h2 class="poem-title">THE QUIET PARTS</h2>
+        </div>
+        <img src="https://i.pinimg.com/1200x/32/2a/ce/322aceadab99b5251060f0a1c8423ac8.jpg" alt="Quiet nature" class="poem-image">
+        <div class="poem-content">
+In the serenity of your inner being,<br>
+Where the heart and mind are unbound.<br>
+Pay heed to the whispers of your spirit.<br>
+For in the quiet, truth is found.<br><br>
+Cherish yourself wholeheartedly,<br>
+And paint a masterpiece of love.<br>
+Embrace the tranquillity and allow it to exist,<br>
+For in the quiet, secrets unfold.<br><br>
+Take a moment to breathe, and let peace reign.<br>
+Happiness resides in the hush,<br>
+So, welcome the quiet, my dear friend.<br>
+And feel the calm in your soul!
+
+       </div>
+        <div class="copyright">©️ 2023 hadizabagudu.com</div>
+
+        <div class="poem-divider"></div>
+    </article>
+
+    <!-- Poem 3 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">FLAWLESS BEAUTY</h2>
+        </div>
+        <img src="https://cdn.pixabay.com/photo/2020/07/22/03/11/black-horse-5427865_1280.jpg" alt="Nebula" class="poem-image">
+        <div class="poem-content">
+In quiet whispers, a legend of grace,<br>
+Flawless radiance, time can't erase.<br>
+A painted masterpiece, colors that entice,<br>
+Each hue and shade, love's own design.<br><br>
+
+Unmasking dreams with every gaze,<br>
+Sophistication in every brief step.<br>
+A harmonious blend of soul and essence<br>
+Flawless beauty, a priceless presence.
+
+        </div>
+        <div class="copyright">Copyright ©️ Hadiza Bagudu 2023</div>
+        <div class="poem-divider"></div>
+    </article>
+
+    <!-- Poem 4 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">AFTER THE STORM</h2>
+        </div>
+        <img src="https://images.unsplash.com/photo-1527482797697-8795b05a13fe?w=650&h=250&fit=crop" alt="After storm" class="poem-image">
+        <div class="poem-content">
+"Suddenly, I began to smile again.<br>
+Finally, my laughter returned.<br>
+Even though it might take a while,<br>
+Eventually, I will trust again."
+        </div>
+        <div class="copyright">Copyright ©️ Hadiza Bagudu 2024</div>
+        <div class="poem-divider"></div>
+    </article>
+
+    <!-- Poem 5 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">ROSE</h2>
+        </div>
+        <img src="https://cdn.pixabay.com/photo/2018/01/04/19/43/rose-3061486_1280.jpg" alt="Beautiful flowers" class="poem-image">
+        <div class="poem-content">
+Satin-skinned, crimson beauty,
+<br>
+Delicate to the touch,<br>
+Smooth and lustrous,<br>
+Silken petals caress the senses.<br><br>
+
+Its fragrance fills the air,<br>
+Ethereal in its beauty,<br>
+Dancing with grace,<br>
+Tender petals of elegance.        </div>
+        <div class="copyright">©️ 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+    <!-- Poem 6 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">MY SON</h2>
+        </div>
+        <img src="https://pixabay.com/get/gec3af5311e07915f209caa4d7ea92f52acdf1171dbb2d4d0dce16ad78cee20d8bde8cb7801947d71741daaa723e39a2a7765b038db315c0a97f18fd53942295a_1920.jpg" alt="Son" class="poem-image">
+        <div class="poem-content">
+
+Your hugs and kisses make me feel so blessed,<br>
+Your presence in my life is a true gift,<br>
+Your innocence and curiosity,<br>
+Your courage and strength,<br><br>
+
+Your intelligence and wit,<br>
+Your kindness and compassion,<br>
+Your spirit and your heart,<br>
+Fill me with so much love and pride,<br><br>
+ My son, you are my everything.
+        </div>
+        <div class="copyright">©️ 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+    <!-- Poem 7 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">BLUE FLOWER</h2>
+        </div>
+        <img src="https://pixabay.com/get/g13e9ac8164fce0cf3623cd94e0edd7565b8c5ca843024906bcf2fd5618a33e7816e82b94170734e52a2444ca9e6602557ccd7ea5cd870e03912c46535d732786_1920.jpg" alt="Blue flower" class="poem-image">
+        <div class="poem-content">
+Up on a hill where the skies are grey,<br>
+A lonesome blue flower swayed and lay,<br>
+Its petals wilted, its spirits low,<br>
+A melancholic scene for sure.<br><br>
+The bloom, once teeming with vitality,<br>
+Unblemished, an azure beauty to see,<br>
+Its tired crown now hung so low,<br>
+As dewdrops weep and freely flow.<br><br>
+The wind mourns with each and every breath,<br>
+As the flower inches closer to its death.<br>
+Nevermore to bask in the sun's warm embrace,<br>
+Like many, its journey has come to an end.<br><br>
+So, let us mourn this flower blue,<br>
+And bid adieu to this beauty, rare and true.<br>
+For in its passing, a lesson to be learned,<br>
+That beauty fades, but life will carry on.
+        </div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+    <!-- Poem 8 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">UNBROKEN AND UNBOWED</h2>
+        </div>
+
+<img src="https://pixabay.com/get/gb1d38be86011659cda7e1ab42bbfc176d7302e495e597fbe1fba809fc4d2296e3549497b3acde0e45c9fef398d7e697c7f9f6315694d7324fe8e4ffcbe3acb6f_1920.jpg" alt="Olive Trees" class="poem-image">
+        <div class="poem-content">
+Amidst the chaos of war and destruction,<br>
+Where fear is rampant and blood is shed,<br>
+Brave souls stand with unbroken spirit,<br>
+As the world around them is decimated.<br><br>
+They face the storm, unbroken and unbowed,<br>
+Through the darkest of hours, they stood strong.<br>
+Through sorrow and agony, their courage is found,<br>
+Guided by their unwavering faith in God.<br><br>
+War's cold touch, can't steal their grace<br>
+Standing tall and firm on a sacred base<br>
+Deep within them, the power to mend,<br>
+Brave souls, unbroken and unbowed to the end.
+        </div>
+        <div class="copyright">Copyright ©️ Hadiza Bagudu 2024</div>
+        <div class="poem-divider"></div>
+    </article>
+
+    <!-- Poem 9 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">ABUJA CITY</h2>
+        </div>
+        <img src="https://i.pinimg.com/736x/ba/85/6a/ba856a6272b3da9eda5b2c0026561b23.jpg" alt="City" class="poem-image">
+        <div class="poem-content">
+
+In the heart of Nigeria lies a city so grand,<br>
+Abuja, the capital, so beautiful and so vast.<br>
+With towering skyscrapers, and bustling streets,<br>
+A vibrant culture, that's sure to meet.<br><br>
+
+From the green rolling hills to the modern skyline,<br>
+Abuja's beauty is a sight so sublime.<br>
+A melting pot of culture and rich history,<br>
+A city that's filled with so much mystery.<br><br>
+
+The National Mosque, with its majestic dome,<br>
+Is a symbol of faith, and a spiritual home.<br>
+The National Stadium, with its grandeur and might,<br>
+Is where we come together to cheer and unite.•<br><br>
+
+From the shopping malls to the food bazaars,<br>
+Abuja has it all, with no shortage of stars.<br>
+A place where everyone, can find their niche,<br>
+A city that's full of life, and never a glitch.<br><br>
+
+So tick-tock goes the clock, as time keeps on moving,<br>
+But in Abuja, life's a journey worth pursuing.<br>
+With each step we take, we leave our mark,<br>
+And in Abuja, we create a legacy so stark.        </div>
+        <div class="copyright">©️ 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+    <!-- Poem 10 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">FULL MOON</h2>
+        </div>
+        <img src="https://cdn.pixabay.com/photo/2024/05/11/09/50/inside-8754427_1280.png" alt="Full moon" class="poem-image">
+        <div class="poem-content">
+Full moon so fair, so bright!<br>
+A silver jewel in the sky,<br>
+You illuminate the darkest night,<br>
+With a warm and gentle light.<br><br>
+Your presence calms my troubled heart.,<br>
+With memories of a love far apart,<br>
+A dream of peace and solace.<br>
+A promise to be united at last.<br><br>
+A traveler's guide a constant friend,<br>
+Through every twist and bend,<br>
+A reprieve in times of strain,<br>
+A loyal companion to the end<br><br>
+Oh moon, my love transient,<br>
+I lose myself in your warm embrace.<br>
+A soothing relief for every pain<br>
+A vision of beauty and grace
+        </div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+    <!-- Poem 11 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">GARRI</h2>
+        </div>
+        <img src="https://assets.bonappetit.com/photos/60ef61ea1cd5ffae42c1d614/16:9/w_1920,c_limit/Garri.jpg" alt="Bowl of food" class="poem-image">
+        <div class="poem-content">
+A taste of home,<br>
+A symbol of our land,<br>
+A humble dish,<br>
+Comfort in a bowl.<br><br>
+A staple we all love,<br>
+Day and night.<br>
+Satisfying and nourishing,<br>
+Hot or cold.
+        </div>
+        <div class="copyright">©️ 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+    <!-- Poem 12 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">LAILA (Night's Beauty)</h2>
+        </div>
+        <img src="https://pixabay.com/images/download/yuri_b-night-3078326_1920.jpg" alt="Night sky" class="poem-image">
+        <div class="poem-content">
+Laila, night's beauty,<br>
+Your beauty is beyond compare,<br>
+You embody the night,<br>
+Filling my heart with care.<br><br>
+Your eyes are bright like the stars,<br>
+Your lips are soft like a rose,<br>
+Your heart, so gentle and kind,<br>
+Calms my trouble woes.<br><br>
+Laila night's beauty,<br>
+Your beauty I cannot deny,<br>
+You embody the night,<br>
+My love for you will never die.
+        </div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+    <!-- Poem 13 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">Blue Eyes</h2>
+        </div>
+        <img src="https://cdn.pixabay.com/photo/2022/01/16/14/20/cat-6942183_1280.jpg" alt="Blue eyes" class="poem-image">
+        <div class="poem-content">
+The prettiest eyes I have ever seen.<br>
+In their gaze, my heart's held fast.<br>
+From the depth of the oceans unleashed,<br>
+Like two sapphires trapped in glass.<br><br>
+Gleaming with true love's eternal sheen,<br>
+Of a natural beauty unsurpassed.<br>
+The promise of an endless dream,<br>
+And a love that's bound to last.
+        </div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+    <!-- Poem 14 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">SINISTER</h2>
+        </div>
+        <img src="https://i.pinimg.com/1200x/e7/97/f6/e797f6bffc06acf9d37336325ec96dd8.jpg" alt="Love" class="poem-image">
+        <div class="poem-content">
+
+Beneath the moon's sinister glow,<br>
+Dark secrets whisper, hidden below.<br>
+Shadows dance with a haunting grace,<br>
+Unveiling truths in that eerie space.<br><br>
+
+A twisted tale of night's embrace,<br>
+Sinister beauty in every trace.<br>
+Mysteries deep, a world within,<br>
+Where darkness and enigma begin.
+
+        </div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+    <!-- Poem 15 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">MY BLESSING</h2>
+        </div>
+        <img src="https://i.pinimg.com/originals/41/b2/ce/41b2ceba50c5ca3627851cc931e298a8.gif" alt="Writing" class="poem-image">
+        <div class="poem-content">
+Blessings of love, so sweet and true,
+ My heart is filled with gratitude.
+ Your presence in my life, so dear,
+ A blessing I hold so near.
+
+ Your love is like a gentle breeze,
+ It fills my heart with joy and ease.
+ Your kind words, so full of grace,
+ Bring me comfort in every place.
+
+ Your gentle touch, so warm and  kind,
+ Makes me feel so safe and fine.
+ Your smile, so bright and full of life,
+ Makes me feel so blessed and alive.</div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+    <!-- Poem 16 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">ECHOES OF THE FORGOTTEN</h2>
+        </div>
+        <img src="https://cdn.pixabay.com/photo/2022/02/18/19/50/mountain-7021372_1280.jpg" alt="Shadows" class="poem-image">
+        <div class="poem-content">
+Whispers of legends dwell in the shadows,<br>
+Forgotten tales buried in the past.<br>
+A bygone era, its brilliance now lost,<br>
+Quietly moving through the corridors of time.<br>
+Remnants of the past, faint but clear.<br><br>
+Cherished memories, once precious and close,<br>
+Sounds of laughter, now distant and hushed.<br>
+On the canvas of time, they quietly sketch.<br>
+Unspoken tales, dreams cast away,<br>
+Echoes of the forgotten, a treasure to unearth.
+        </div>
+        <div class="copyright">Copyright ©️ Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+    <!-- Poem 17 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">HEAVY IS THE BURDEN</h2>
+        </div>
+        <img src="https://i.pinimg.com/1200x/6f/45/e9/6f45e91bf2069d243bf8bb33f622a8fa.jpg" alt="Feather" class="poem-image">
+        <div class="poem-content">
+    
+  A feather, light and airy,<Br>
+ A symbol of flight and grace.<Br>
+ But what if it was heavy,<Br>
+ Would it still keep its place?<Br><Br>
+
+ What if a feather, once so light,<Br>
+ Became a weight too much to bear?<Br>
+ Would it fall from lofty heights,<Br>
+ And sink into the air?<Br><Br>
+
+ Perhaps it would drift slowly down,<Br>
+ To rest upon the ground.<Br>
+ A thing of beauty, still and proud,<Br>
+ But its flight forever bound.<Br><Br>
+
+ Yet the feather holds a special power,<Br>
+ For it reminds us that even when life’s burden seems to tower,<Br>
+ We can still find strength within,<Br>
+ And rise above our weight.<Br><Br>
+
+ For even a feather heavy can still find a way to elevate.<Br>
+ It teaches us to persevere and carry on with all our might.<Br>
+ For heavy is the burden we bear<Br>
+ But our spirit can still take flight.<Br><Br>
+
+ So let us hold our heads up high,<Br>
+ And face each day with grace.<Br>
+ For though our burdens may be heavy,<Br>
+ We can still find our rightful place.<Br><Br>
+
+ As we journey through this life,<Br>
+ With its twists and turns and bends,<Br>
+ Let us remember the weight we carry,<Br>
+ Is but a feather in the end.
+    </div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+    <!-- Poem 18 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">TICKING  CLOCK</h2>
+        </div>
+        <img src="https://i.pinimg.com/1200x/9a/ae/ba/9aaebad3b59b234dd7f6b5a27ef32b9f.jpg" alt="Clock" class="poem-image">
+        <div class="poem-content">
+
+Ticking clock, don't you ever stop,<Br>
+Marking the moments as they pass by.<Br>
+Each second a treasure to be held,<Br>
+For time is a gift we can't deny.<Br><Br>
+
+Tick-tock, the sound echoes in my ear,<Br>
+As the hours slip away from me.<Br>
+Life is a journey, a precious gift,<Br>
+But we can't hold it eternally.<Br><Br>
+
+Days pass like whispers in the wind,<Br>
+As the years melt away like snow.<Br>
+And in the end, what will remain,<Br>
+Are the memories we choose to sow.<Br><Br>
+
+So let us make the most of time,<Br>
+And cherish every single day.<Br>
+For every moment that we waste,<Br>
+Is a priceless gift thrown away.<Br><Br>
+
+Tick-tock, the clock keeps ticking on,<Br>
+As we journey through life's winding road.<Br>
+But with each step, we can make our mark,<Br>
+And leave behind a legacy to behold.<Br<Br>
+
+Ticking clock, keep ticking away,<Br>
+For time is a gift we can't ignore.<Br>
+Let us use every moment we're given,<Br>
+And make this life worth living for.
+ </div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+<!-- Poem 19 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">SOMETIMES</h2>
+        </div>
+        <img src="https://i.pinimg.com/736x/ee/5c/fe/ee5cfee552a61825f69cab50b91c6977.jpg" alt="Boat" class="poem-image">
+        <div class="poem-content">
+Sometimes life is a flowing river, so calm and tranquil.<Br>
+Other times, it is a stormy sea drowning sailors and their ships.<Br><Br>
+
+Sometimes, life is full of laughter, with happiness that overflows.<Br>
+Other times, it is a lesson, teaching and helping us grow.
+     </div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+
+
+<!-- Poem 20 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">VEILED BEAUTY</h2>
+        </div>
+        <img src="https://i.pinimg.com/736x/94/80/e8/9480e821a3e4f2cabef5c4d074aa23cd.jpg" alt="Veil" class="poem-image">
+        <div class="poem-content">
+A hijab full of grace,<Br>
+Your beauty is hidden but in its place,<Br>
+A radiance shines from within,<Br>
+A light that brightens from your skin.<Br><Br>
+
+The beauty that we cannot see,<Br>
+It's more than what meets the eye to be,<Br>
+It's the kindness and love that you exude,<Br>
+That makes your spirit beautiful and renewed.<Br><Br>
+
+The hijab, it serves to veil,<Br>
+A symbol of strength that cannot fail,<Br>
+For in its embrace, you find your power,<Br>
+To live with purpose and shine every hour.<Br><Br>
+
+Your face, it beams with a light,<Br>
+That brings joy and peace to the sight,<Br>
+It's a reflection of your soul's beauty,<Br>
+A beacon of hope and love for all to see.<Br><Br>
+
+So, wear your hijab with pride,<Br>
+And let your radiance shine inside,<Br>
+For in your grace, we find our way,<Br>
+To love and kindness every day.
+ </div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+    
+
+<!-- Poem 21 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">TRAVEL WHILE YOU ARE YOUNG</h2>
+        </div>
+        <img src="https://i.pinimg.com/1200x/69/17/ac/6917ac747a8f07b87e760f5e85ba95b8.jpg" alt="Vacation" class="poem-image">
+        <div class="poem-content">
+
+    Travel while you're young, dear friend,<Br>
+Let your spirit roam and bend,<Br>
+Explore new lands and sights unseen,<Br>
+Discover wonders yet to glean.<Br><Br>
+
+Experience things you've never known,<Br>
+Expand your mind, let it be blown,<Br>
+Embrace the cultures that you find,<Br>
+Let them leave a mark on your mind.<Br><Br>
+
+Taste the foods you've never tried,<Br>
+Let your palate be your guide,<Br>
+Feel the wind and let it blow,<Br>
+Let it take you where you don't know.<Br><Br>
+
+Meet new people, make new friends,<Br>
+Discover how their story blends,<Br>
+Share your own and let them see,<Br>
+The beauty of your own journey.<Br><Br>
+
+Travel while you're young, my dear,<Br>
+Don't wait until your path is clear,<Br>
+For life is fleeting, time is short,<Br>
+And there's a world of wonder to be sought.
+ </div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+
+
+    
+
+ 
+
+<!-- Poem 22 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">SOLACE</h2>
+        </div>
+        <img src="https://i.pinimg.com/736x/c4/05/61/c40561b9bf574f75b15adc6ed17ac4ee.jpg" alt="Sun" class="poem-image">
+        <div class="poem-content">
+
+      the sun sets on what once was,<B>
+ A feeling of loss settles in.<B>
+ Memories of the past flood the mind,<B>
+ And a sense of sadness begins.<B><B>
+
+ But even as the darkness falls,<B>
+ A glimmer of hope appears.<B>
+ For with each passing moment,<B>
+ The dawn of a new day nears.<B><B>
+
+ As the sun rises in the east,<B>
+ A sense of happiness grows.<B>
+ Newfound joys and possibilities,<B>
+ A future that overflows.<B><B>
+
+ And though the past may still linger,<B>
+ Its hold on us begins to fade.<B>
+ For with each sunrise that we witness,<B>
+ A new life we have made.<B><B>
+
+ So, let the sunset be a reminder,<B>
+ Of all that we have lost.<B>
+ But let the sunrise be a beacon,<B>
+ Of all that we have gained at last.
 </div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+
+
+
+
+<!-- Poem 23 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">CREEPING DARKNESS</h2>
+        </div>
+        <img src="https://i.pinimg.com/1200x/22/17/be/2217bec36d1b9fe4b8ff45586e3dbbbd.jpg" alt="Sun" class="poem-image">
+        <div class="poem-content">
+
+
+      Creeping darkness comes at night,<Br>
+Invading spaces, dimming light,<Br>
+A weight that is heavy on the chest,<Br>
+A force that robs of peace and rest.<Br><Br>
+
+It slowly crawls and takes its hold,<Br>
+A thief that steals the joy of the old,<Br>
+And leaves a void, an emptiness,<Br>
+A constant ache, a deep distress.<Br><Br>
+
+It muffles laughter, dims the sun,<Br>
+Takes away the joy of fun,<Br>
+And in its place, it plants a seed,<Br>
+Of sorrow, pain, and endless need.<Br><Br>
+
+Creeping darkness, oh how it creeps,<Br>
+Into our minds, our souls, it seeps,<Br>
+But hope remains, a shining light,<Br>
+That drives away the gloom of night.<Br><Br>
+
+Reach out for help, don’t suffer alone,<Br>
+For there are hands to hold you home,<Br>
+And in the end, the sun will rise,<Br>
+To chase away the darkened skies.
+</div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+
+
+
+
+<!-- Poem 24 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">SOLITUDE</h2>
+        </div>
+        <img src="https://i.pinimg.com/1200x/c3/6f/c8/c36fc857de31cc1f2fe4e42adef151fd.jpg" alt="Girl" class="poem-image">
+        <div class="poem-content">
+
+      My best friend is solitude,<Br>
+A constant companion, kind and true,<Br>
+Always there when I need a break,<Br>
+From the hustle and bustle, the noise and shake.<Br><Br>
+
+With solitude, I find my peace,<Br>
+A moment to breathe, a chance to<Br>
+release, The worries and fears that<Br>
+plague my mind, And leave me feeling lost and blind.<Br><Br>
+
+Solitude listens without judgment or voice,<Br>
+Giving me space to make my own choice,<Br>
+To find the answers I seek inside,<Br>
+And discover the truths I cannot hide.<Br><Br>
+
+It's not a lonely place, as some may say,<Br>
+But rather, a sanctuary, where I can play,<Br>
+With thoughts and dreams that take me far,<Br>
+And help me to become who I truly are.<Br><Br>
+
+So I cherish my friend solitude,<Br>
+For all the peace and joy it's imbued,<Br>
+And i am grateful for the space to grow,<Br>
+Into the person, I want to know.
+</div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+
+
+
+<!-- Poem 25 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">CITY LIGHTS</h2>
+        </div>
+        <img src="https://i.pinimg.com/1200x/70/1b/c4/701bc4ac53750a4e38390a8064dc3725.jpg" alt="City" class="poem-image">
+        <div class="poem-content">
+
+      Amidst the concrete jungle, the stars below ignite,<Br>
+City lights that gleam so bright, a wondrous sight.<Br><Br>
+
+These beacons of civilisation, a constellation of their own,<Br>
+A symphony of chaos, a harmony yet unknown.<Br><Br>
+
+In the city's hustle and bustle, a heartbeat of its own,<Br>
+Amidst the noise and chaos, a serenade to be shown.<Br><Br>
+
+Oh, stars below, how you shine so bright,<Br>
+In the darkest of nights, you are the guiding light.<Br><Br>
+
+A thousand tales of love and heartache,<Br>
+In the shadows of skyscrapers, secrets do they make.<Br><Br>
+
+The city, like a lover, tempts and draws us near,<Br>
+With the promise of adventure, and joy, and fear.<Br><Br>
+
+And as we wander through the city's endless streets,<Br>
+The stars below, they guide our weary feet.<Br><Br>
+
+Oh, dear, how you perceived the grace of the city's sight,<Br>
+A luminous mirroring of the cosmos above, in this metropolis delight.
+</div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+
+
+
+
+<!-- Poem 26 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">WHEN THE ONE YOU LOVE DOESN'T LOVE YOU BACK</h2>
+        </div>
+        <img src="https://i.pinimg.com/1200x/7c/40/ef/7c40efcb71be41418893b50b46de477c.jpg" alt="Heart" class="poem-image">
+        <div class="poem-content">
+
+      When the one you love doesn't love you back<Br>
+And the thought of that makes you sad.<Br><Br>
+
+And you feel the weight of the world on your heart,<Br>
+And your hopes and dreams fades to black.<Br><Br>
+
+Then you start to equate love with pain,<Br>
+Of all the words said and unsaid.<Br><Br>
+
+Trying to hide the tears you've shed.<Br>
+A cruel game of desire and heartbreak.<Br><Br>
+
+Even as you strive to move ahead,<Br>
+And leave behind the love you once felt.<Br><Br>
+
+Deep within your heart, you understand,<Br>
+That love is everlasting and never a mistake!
+</div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+
+
+<!-- Poem 27 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">TREAD CAREFULLY!</h2>
+        </div>
+        <img src="https://i.pinimg.com/736x/76/ed/70/76ed70d0b63658a42ceb42aac9262b9c.jpg" alt="Warning" class="poem-image">
+        <div class="poem-content">
+
+When gentle breezes rustle the skies, I am tranquillity and joy.<Br>
+I am love and peace, my heart is kind.<Br>
+But be careful not to cross the line, you may not like what you find,<Br>
+The tranquil breeze becomes a tempest, and my eyes fiery ignite.<Br><Br>
+
+As patience wanes, temper flairs,<Br>
+But steadfast I will remain, standing my ground.<Br>
+With resolute conviction, you will know you've erred.<Br>
+So, proceed with caution, I am kind but resolute.<Br><Br>
+
+I stand my ground on what is right,<Br>
+But fear not, my dear friend,<Br>
+Underneath, my heart is full of love.<Br>
+Respect begets respect. You'll reap what you sew.
+</div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+
+
+
+<!-- Poem 28 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">TALK IS CHEAP</h2>
+        </div>
+        <img src="https://i.pinimg.com/736x/b8/03/8a/b8038a896f12676b86de9f6b948be535.jpg" alt="Lips" class="poem-image">
+        <div class="poem-content">
+
+Be cautious of one who speaks with ease,<Br>
+Demands swift action, and is quick to please.<Br>
+But, takes no risk, no accountability, no venture,<Br>
+For such a man, you should take care.<Br><Br>
+
+For risk and reward go hand in hand.<Br>
+One must not be afraid to take a stand.<Br>
+So those who talk yet don't back up with action,<Br>
+Are not fit to lead a crowd for sure.
+</div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+
+<!-- Poem 29 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">INTROVERT</h2>
+        </div>
+        <img src="https://i.pinimg.com/1200x/e3/8e/5d/e38e5d87f75308fec800dcd56e08ba60.jpg" alt="Tent" class="poem-image">
+        <div class="poem-content">
+
+    I'm an introvert; hear me say!<Br>
+My thoughts and feelings held at bay,<Br>
+A quiet soul, who often shies,<Br>
+Away from crowds and people's eyes.<Br><Br>
+
+But in my silence I find my strength,<Br>
+A space to think and go at length,<Br>
+To dive into my deepest mind,<Br>
+And leave the noise and chaos behind.<Br><Br>
+
+I'm not one for the spotlight's glare,<Br>
+Or parties where I must beware,<Br>
+Of small talk and shallow chat,<Br>
+That leaves me feeling drained and flat.<Br><Br>
+
+But in a book or a quiet space,<Br>
+I find my joy and my own pace,<Br>
+To explore the world and my own heart,<Br>
+And grow into the person I want.<Br><Br>
+
+So please don't judge or try to change,<Br>
+The way I am, the way I arrange,<Br>
+My world to suit my introverted soul,<Br>
+For in my quietness, I feel whole.
+</div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+
+
+<!-- Poem 30 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">A BEAUTIFUL MORNING</h2>
+        </div>
+        <img src="https://i.pinimg.com/736x/4a/a3/4b/4aa34b2c71cc41e3d7ed8a4c9f6ae601.jpg" alt="Morning" class="poem-image">
+        <div class="poem-content">
+
+     The morning sun rises with grace,
+Birds sing melodies to embrace,
+
+Soft breeze whispers of love and peace,
+Flowers bloom in colors to seize,
+
+Embrace the beauty of the day,
+Love and joy, found in every way.
+</div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+
+
+
+
+<!-- Poem 31 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">SALAHUDDIN AYYUBI</h2>
+        </div>
+        <img src="https://i.pinimg.com/736x/34/d6/86/34d68654b5b6bec5fb5b9cc227545e64.jpg" alt="Warrior" class="poem-image">
+        <div class="poem-content">
+
+    Salahuddin, a name that echoes through time,
+A warrior king, whose legend does shine,
+His courage and strength, a beacon of light,
+A symbol of honor, a gallant knight.
+
+Born in a land of turmoil and strife,
+He rose above, to lead a new life,
+A champion of justice, a defender of faith,
+His sword and heart, his people's safe.
+
+With skill and might, he fought on the field,
+A fearless warrior, who refused to yield,
+Against the Crusaders, he stood tall,
+A defender of his people, who answered the call.
+
+His victories were many, his enemies few,
+His heart filled with mercy, his soul true,
+His legacy lives on, in stories and lore,
+A hero of the East, forevermore.
+
+Salahuddin, a name that inspires,
+A hero of honor, whose heart inspires,
+His legacy lives on, in tales and song,
+A symbol of hope, forever strong.
+</div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+
+
+<!-- Poem 32 -->
+    <article class="poem-card">
+        <div class="poem-header">
+            <h2 class="poem-title">PERMISSION TO BE HAPPY</h2>
+        </div>
+        <img src="https://i.pinimg.com/736x/b8/7a/19/b87a19d3d909c7fe2a7af00b1abf27a0.jpg" alt="Happy" class="poem-image">
+        <div class="poem-content">
+
+     Give yourself permission to be happy,
+To let your heart soar and your spirit free.
+Don't let past sorrows or future worries,
+Keep you from living fully and feeling joyfully.
+
+Life is fleeting, and time flies fast,
+So cherish each moment and make it last.
+Find beauty in the simple things around,
+And let happiness in; let it be found.
+
+Give yourself permission to laugh and play,
+To dance and sing, to enjoy each day.
+Don't let the weight of the world hold you down,
+Find joy in the moments, and let happiness abound.
+
+Release the guilt and the shame that binds,
+Open your heart and free your mind.
+Choose happiness; let it be your guide,
+Embrace the journey and enjoy the ride.
+
+Give yourself permission to be happy,
+To embrace the present, let the past be.
+Live life with purpose, with love and light,
+And happiness will be your constant sight.
+</div>
+        <div class="copyright">© 2023 Hadiza Bagudu</div>
+        <div class="poem-divider"></div>
+    </article>
+
+
+
+
+  
+
+</main>
+
+<section id="about-author">
+    <div class="about-container">
+        <h2 class="about-title">About the Author</h2>
+        <img src="https://assets.lulu.com/cover_thumbs/8/2/82711233-image-shortedge-384.jpg" alt="Hadiza Bagudu" class="author-image">
+        <div class="about-text">
+            <p>Hadiza Bagudu is a Nigerian writer, poet, blogger, podcaster, and entrepreneur based in Abuja. With roots in both creative literature and academic research, she bridges the worlds of artistic expression and scholarly analysis.</p>
+            <p>She brings a unique perspective to her storytelling, weaving together emotional depth with cultural insights. Her poetry has been described as "evocative and transformative," while her novels have garnered international praise for their compelling narratives and authentic characters.</p>
+            <p>She is the author of <em>With Love: A Collection of Poems</em>, <em>Fantah</em>, and <em>The Thin Line</em>. She holds a degree in International Studies and an MSc in International Relations and Diplomacy. Her long-term dream is to write at least twenty books and leave behind a legacy that will light the path for younger writers.</p>
+            <p>"Writing is an act of listening to the silence between words."</p>
+        </div>
+        <div class="social-links">
+            <a href="https://www.hadizab.com" target="_blank">Website</a>
+            <a href="https://www.facebook.com/hadiza.bagudu.1/" target="_blank">Facebook</a>
+            <a href="https://www.youtube.com/@hadizabagudu" target="_blank">YouTube</a>
+            <a href="https://www.hadizab.com/hadizas-blogs" target="_blank">Blog</a>
+        </div>
+    </div>
+</section>
+<!-- Other Books Section -->
+<section class="py-24 bg-ivory-50 relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <p class="text-terracotta-600 text-sm tracking-[0.3em] uppercase mb-4 font-accent">Bibliography</p>
+            <h3 class="font-display text-3xl text-sepia-900 mb-4">More Works by Hadiza</h3>
+            <div class="flex items-center justify-center gap-4">
+                <div class="h-px w-16 bg-gradient-to-r from-transparent to-terracotta-400"></div>
+                <div class="w-2 h-2 rotate-45 bg-burgundy-600"></div>
+                <div class="h-px w-16 bg-gradient-to-l from-transparent to-terracotta-400"></div>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <!-- Fantah -->
+            <a href="https://hadizab.github.io/fantah/" target="_blank" class="group cursor-pointer hover-lift block">
+                <div class="aspect-[2/3] rounded-sm mb-4 relative overflow-hidden shadow-md bg-gradient-to-br from-sepia-200 to-terracotta-100">
+                    <img src="https://assets.lulu.com/cover_thumbs/z/m/zmrkky2-ebook-shortedge-384.jpg" alt="Fantah: Love & War in Colonial Africa" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-terracotta-900/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <!-- Decorative corner -->
+                    <div class="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-ivory-50/30 to-transparent"></div>
+                </div>
+                <h4 class="font-display text-base text-sepia-900 text-center mb-1">Fantah</h4>
+                <p class="text-sm text-terracotta-700 text-center font-body">Love & War in Colonial Africa</p>
+            </a>
+            
+            <!-- The Thin Line -->
+            <a href="https://hadizab.github.io/Thethinline.github.io/" target="_blank" class="group cursor-pointer hover-lift block">
+                <div class="aspect-[2/3] rounded-sm mb-4 relative overflow-hidden shadow-md bg-gradient-to-br from-sepia-200 to-ochre-100">
+                    <img src="https://assets.lulu.com/cover_thumbs/e/7/e7d88w5-ebook-shortedge-384.jpg" alt="The Thin Line" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-terracotta-900/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-ivory-50/30 to-transparent"></div>
+                </div>
+                <h4 class="font-display text-base text-sepia-900 text-center mb-1">The Thin Line</h4>
+                <p class="text-sm text-sepia-600 text-center font-body">A Story of Boundaries</p>
+            </a>
+            
+            <!-- Melody -->
+            <a href="https://hadizab.github.io/Melody-2/" target="_blank" class="group cursor-pointer hover-lift block">
+                <div class="aspect-[2/3] rounded-sm mb-4 relative overflow-hidden shadow-md bg-gradient-to-br from-sepia-200 to-burgundy-100">
+                    <img src="https://assets.lulu.com/cover_thumbs/5/7/578gg69-ebook-shortedge-384.jpg" alt="Melody: A Music Superstar's Journey" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-terracotta-900/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-ivory-50/30 to-transparent"></div>
+                </div>
+                <h4 class="font-display text-base text-sepia-900 text-center mb-1">Melody</h4>
+                <p class="text-sm text-sepia-600 text-center font-body">A Music Superstar's Journey</p>
+            </a>
+            
+            <!-- With Love -->
+            <a href="https://hadizab.github.io/withlove/" target="_blank" class="group cursor-pointer hover-lift block">
+                <div class="aspect-[2/3] rounded-sm mb-4 relative overflow-hidden shadow-md bg-gradient-to-br from-sepia-200 to-terracotta-100">
+                    <img src="https://assets.lulu.com/cover_thumbs/j/e/jednnjg-ebook-shortedge-384.jpg" alt="With Love: Poetic Collection" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-terracotta-900/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-ivory-50/30 to-transparent"></div>
+                </div>
+                <h4 class="font-display text-base text-sepia-900 text-center mb-1">With Love</h4>
+                <p class="text-sm text-sepia-600 text-center font-body">A Collection of Poems</p>
+            </a>
+            
+            <!-- An Extraordinary Experience -->
+            <a href="https://hadizab.github.io/epic/" target="_blank" class="group cursor-pointer hover-lift block">
+                <div class="aspect-[2/3] rounded-sm mb-4 relative overflow-hidden shadow-md bg-gradient-to-br from-sepia-200 to-amber-100">
+                    <img src="https://assets.lulu.com/cover_thumbs/7/k/7k899q6-ebook-shortedge-384.jpg" alt="An Extraordinary Experience" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-terracotta-900/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-ivory-50/30 to-transparent"></div>
+                </div>
+                <h4 class="font-display text-base text-sepia-900 text-center mb-1">An Extraordinary Experience</h4>
+                <p class="text-sm text-sepia-600 text-center font-body">An Epic Journey of Faith</p>
+            </a>
+            
+            <!-- The Quiet Parts - Currently Reading -->
+            <a href="https://hadizab.github.io/quietparts/" target="_blank" class="group cursor-pointer hover-lift relative block">
+                <div class="aspect-[2/3] rounded-sm mb-4 relative overflow-hidden shadow-md ring-2 ring-terracotta-500 ring-offset-2 bg-gradient-to-br from-sepia-200 to-indigo-100">
+                    <img src="https://assets.lulu.com/cover_thumbs/5/7/578ggnn-ebook-shortedge-384.jpg" alt="The Quiet Parts: A Collection of Poems" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-terracotta-900/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <!-- Currently Reading Badge -->
+                    <div class="absolute top-3 right-3 bg-terracotta-600 text-ivory-50 text-xs font-accent tracking-wider px-3 py-1 rounded-sm shadow-lg z-10">
+                        Currently Reading
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-ivory-50/30 to-transparent"></div>
+                </div>
+                <h4 class="font-display text-base text-sepia-900 text-center mb-1">The Quiet Parts</h4>
+                <p class="text-sm text-sepia-600 text-center font-body">A Collection of Poems</p>
+            </a>
+            
+            <!-- Astral -->
+            <a href="https://hadizab.github.io/astral/" target="_blank" class="group cursor-pointer hover-lift block">
+                <div class="aspect-[2/3] rounded-sm mb-4 relative overflow-hidden shadow-md bg-gradient-to-br from-sepia-200 to-purple-100">
+                    <img src="https://i.pinimg.com/736x/bb/63/22/bb63223a398f10f4d11699fd44d9fc23.jpg" alt="Astral" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-terracotta-900/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-ivory-50/30 to-transparent"></div>
+                </div>
+                <h4 class="font-display text-base text-sepia-900 text-center mb-1">Astral</h4>
+                <p class="text-sm text-sepia-600 text-center font-body">Cosmic Journey</p>
+            </a>
+            
+            <!-- Ripples -->
+            <a href="https://hadizab.github.io/ripples-/" class="group cursor-pointer hover-lift block">
+                <div class="aspect-[2/3] rounded-sm mb-4 relative overflow-hidden shadow-md bg-gradient-to-br from-sepia-200 to-gold-100">
+                    <img src="https://i.pinimg.com/736x/e7/4e/e1/e74ee13714c063856f70f500123fc9b0.jpg" alt="Ripples" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-terracotta-900/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-ivory-50/30 to-transparent"></div>
+                </div>
+                <h4 class="font-display text-base text-sepia-900 text-center mb-1">Ripples</h4>
+                <p class="text-sm text-sepia-600 text-center font-body">Current Collection</p>
+            </a>
+        </div>
+        
+        <!-- View All Link -->
+        <div class="mt-12 text-center">
+            <a href="https://www.hadizab.com" target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center gap-2 text-terracotta-700 hover:text-terracotta-800 font-body tracking-wide transition-colors group">
+                <span>View Complete Bibliography</span>
+                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Buy Me Coffee Section -->
+<section class="buy-coffee">
+    <img src="https://cdn.pixabay.com/photo/2022/03/09/05/05/coffee-7057030_1280.png" 
+         alt="Coffee cup" 
+         class="coffee-icon">
+    <h3>Enjoying my poems?</h3>
+    <a href="https://www.paypal.com/donate?business=mammy546@gmail.com" 
+       target="_blank" 
+       class="coffee-btn">
+        ☕ Buy me a coffee
+    </a>
+</section>
 
 <style>
-.review-link-wrapper {
-  width: 100%;
-  text-align: left;       /* ← CHANGE TO 'center' OR 'right' IF NEEDED */
+/* Additional styles for the bibliography section to match your existing design */
+.buy-coffee {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #f8f4e9 0%, #f0e9db 100%);
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    max-width: fit-content;
+    margin: 20px auto;
+    border: 1px solid rgba(210, 180, 140, 0.3);
 }
 
-.review-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  background: #fafafa;           /* ← CHANGE BACKGROUND COLOR */
-  border: 1px solid #ddd;        /* ← CHANGE BORDER COLOR */
-  border-radius: 20px;
-  text-decoration: none;
-  color: #555;                   /* ← CHANGE TEXT COLOR */
-  font-size: 0.95rem;
-  font-style: italic;
-  font-family: inherit;
-  transition: all 0.25s ease;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-  margin-top: 5px;
+.coffee-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 50%;
 }
 
-.review-link:hover {
-  background: #f0f0f0;           /* ← CHANGE HOVER BACKGROUND */
-  border-color: #bbb;            /* ← CHANGE HOVER BORDER */
-  color: #333;                   /* ← CHANGE HOVER TEXT COLOR */
-  transform: translateY(-2px);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+.buy-coffee h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #5a3e2b;
+    white-space: nowrap;
 }
 
-.review-link::before {
-  content: "✎";
-  font-style: normal;
-  font-size: 0.9rem;
+.coffee-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #6f4e37;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: none;
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(111, 78, 55, 0.3);
+}
+
+.coffee-btn:hover {
+    background-color: #5a3e2b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(90, 62, 43, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .buy-coffee {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 12px 16px;
+    }
+}
+
+/* Bibliography section color variables fallback */
+.bg-ivory-50 { background-color: #fefaf6; }
+.text-terracotta-600 { color: #b1451f; }
+.text-terracotta-700 { color: #9b3a1a; }
+.text-terracotta-800 { color: #7a2e14; }
+.text-sepia-900 { color: #2c241e; }
+.text-sepia-600 { color: #5a4a3a; }
+.bg-terracotta-500 { background-color: #b1451f; }
+.bg-terracotta-600 { background-color: #9b3a1a; }
+.ring-terracotta-500 { ring-color: #b1451f; }
+.bg-burgundy-600 { background-color: #8b3c2c; }
+.bg-terracotta-900\/10 { background-color: rgba(90, 40, 20, 0.1); }
+.bg-terracotta-900\/20 { background-color: rgba(90, 40, 20, 0.2); }
+.from-sepia-200 { --tw-gradient-from: #e8ddd0; }
+.to-terracotta-100 { --tw-gradient-to: #f2e0d4; }
+.to-ochre-100 { --tw-gradient-to: #f5e6d0; }
+.to-burgundy-100 { --tw-gradient-to: #f0dbd4; }
+.to-amber-100 { --tw-gradient-to: #fef3c7; }
+.to-indigo-100 { --tw-gradient-to: #e0e8f0; }
+.to-purple-100 { --tw-gradient-to: #f0e6ff; }
+.to-gold-100 { --tw-gradient-to: #faf0d7; }
+
+/* Grid layout */
+.grid { display: grid; }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.gap-6 { gap: 1.5rem; }
+.aspect-\[2\/3\] { aspect-ratio: 2 / 3; }
+.rounded-sm { border-radius: 0.25rem; }
+.overflow-hidden { overflow: hidden; }
+.shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+.object-cover { object-fit: cover; }
+.absolute { position: absolute; }
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.top-3 { top: 0.75rem; }
+.right-3 { right: 0.75rem; }
+.bottom-0 { bottom: 0; }
+.left-0 { left: 0; }
+.w-12 { width: 3rem; }
+.h-12 { height: 3rem; }
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mt-12 { margin-top: 3rem; }
+.text-center { text-align: center; }
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.tracking-wider { letter-spacing: 0.05em; }
+.tracking-\[0\.3em\] { letter-spacing: 0.3em; }
+.uppercase { text-transform: uppercase; }
+.opacity-0 { opacity: 0; }
+.group-hover\:opacity-100:hover { opacity: 1; }
+.transition-opacity { transition-property: opacity; transition-duration: 0.3s; }
+.transition-transform { transition-property: transform; transition-duration: 0.2s; }
+.hover\:translate-x-1:hover { transform: translateX(0.25rem); }
+.inline-flex { display: inline-flex; }
+.items-center { align-items: center; }
+.gap-2 { gap: 0.5rem; }
+.w-4 { width: 1rem; }
+.h-4 { height: 1rem; }
+.rotate-45 { transform: rotate(45deg); }
+.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+.py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+.py-24 { padding-top: 6rem; padding-bottom: 6rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.lg\:px-8 { padding-left: 2rem; padding-right: 2rem; }
+.max-w-6xl { max-width: 72rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.relative { position: relative; }
+.block { display: block; }
+.cursor-pointer { cursor: pointer; }
+
+/* Hover lift effect */
+.hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+    transform: translateY(-4px);
+}
+
+/* Responsive grid */
+@media (min-width: 768px) {
+    .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Font classes */
+.font-accent { font-family: 'Lato', sans-serif; }
+.font-display { font-family: 'Cormorant Garamond', serif; }
+.font-body { font-family: 'Lato', sans-serif; }
+
+/* Additional polish */
+.ring-2 { box-shadow: 0 0 0 2px var(--tw-ring-color); }
+.ring-offset-2 { --tw-ring-offset-width: 2px; }
+.bg-gradient-to-tr { background-image: linear-gradient(to top right, var(--tw-gradient-stops)); }
+.from-transparent { --tw-gradient-from: transparent; }
+.to-ivory-50\/30 { --tw-gradient-to: rgba(254, 250, 246, 0.3); }
+.bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-stops)); }
+.bg-gradient-to-l { background-image: linear-gradient(to left, var(--tw-gradient-stops)); }
+</style>
+   <!-- ===== BACK TO TOP BUTTON ===== -->
+<button id="backToTop" onclick="scrollToTop()" title="Back to top">↑</button>
+
+<style>
+#backToTop {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  border: none;
+  outline: none;
+  background-color: #c0392b;      /* ← CHANGE COLOR HERE */
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 50px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#backToTop:hover {
+  background-color: #a93226;       /* ← CHANGE HOVER COLOR HERE */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(192, 57, 43, 0.4);
 }
 
 @media (max-width: 600px) {
-  .review-link {
-    font-size: 0.9rem;
-    padding: 7px 14px;
+  #backToTop {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+    line-height: 42px;
+    bottom: 20px;
+    right: 20px;
   }
 }
+</style>
+
+<script>
+(function() {
+  // Show/hide button on scroll
+  window.onscroll = function() {
+    var btn = document.getElementById("backToTop");
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  };
+
+  // Scroll to top smoothly
+  window.scrollToTop = function() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+})();
 </script>
+
+<footer>
+    <p>© 2025 Hadiza Bagudu. All rights reserved. — The Quiet Parts</p>
+</footer>
+
+<script>
+    (function() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+        if(mobileMenu) {
+            mobileMenu.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 40) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.12, rootMargin: "0px 0px -20px 0px" });
+        document.querySelectorAll('.poem-card').forEach(card => observer.observe(card));
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const hash = this.getAttribute('href');
+                if(hash === "#") return;
+                const target = document.querySelector(hash);
+                if(target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    })();
+</script>
+</body>
+</html>
