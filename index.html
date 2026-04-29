@@ -628,6 +628,96 @@ And feel the calm in your soul!
 
        </div>
         <div class="copyright">©️ 2023 hadizabagudu.com</div>
+       <!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS (FIXED - NO DUPLICATES) ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";
+  var LINK_TEXT = "Leave a Review";
+  var TARGET = "_blank";
+
+  // Find all poems and add a review link ONLY if one doesn't already exist
+  var poems = document.querySelectorAll('.poem-card, .poem-block');
+
+  poems.forEach(function(poem) {
+    // Check if this poem already has ANY review link (manual or auto)
+    var existingLink = poem.querySelector('a[href*="Leave-a-Review"], .review-link, .review-link-auto');
+    if (existingLink) {
+      return; // Skip this poem — it already has a review link
+    }
+
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider, hr');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
