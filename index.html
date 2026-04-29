@@ -492,13 +492,14 @@
     <p class="subtitle">Words woven from the soul — verses that linger</p>
 </header>
 
+
 <main class="poems-container" id="poems">
     <!-- Poem 1 -->
     <article class="poem-card">
         <div class="poem-header">
             <h2 class="poem-title">COSMIC DANCE</h2>
         </div>
-        <img src="https://cdn.pixabay.com/photo/2016/11/18/22/58/stars-1837306_1280.jpg" alt="Midnight sky" class="poem-image">
+        <img src="https://pixabay.com/get/g1c7ecbef4af3967bf7f61ac4d002a27bfa5bf1107a355376670961c4ad4cf89b3fdb50250c2601d2d332cd6241eddfcc0151fcabb7f6a083c35fda26fde02b9b_1920.jpg" alt="Midnight sky" class="poem-image">
         <div class="poem-content">
 
 The stars glide through the night in a celestial ballet.
@@ -518,6 +519,89 @@ Unveiling the universe's limitless might.<br>
 
        </div>
         <div class="copyright">©️ 2023 hadizabagudu.com</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
         <div class="poem-divider"></div>
 
     </article>
@@ -544,6 +628,90 @@ And feel the calm in your soul!
 
        </div>
         <div class="copyright">©️ 2023 hadizabagudu.com</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
 
         <div class="poem-divider"></div>
     </article>
@@ -604,6 +772,90 @@ Ethereal in its beauty,<br>
 Dancing with grace,<br>
 Tender petals of elegance.        </div>
         <div class="copyright">©️ 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -627,6 +879,90 @@ Fill me with so much love and pride,<br><br>
  My son, you are my everything.
         </div>
         <div class="copyright">©️ 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -655,6 +991,90 @@ For in its passing, a lesson to be learned,<br>
 That beauty fades, but life will carry on.
         </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -680,6 +1100,90 @@ Deep within them, the power to mend,<br>
 Brave souls, unbroken and unbowed to the end.
         </div>
         <div class="copyright">Copyright ©️ Hadiza Bagudu 2024</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -716,6 +1220,90 @@ But in Abuja, life's a journey worth pursuing.<br>
 With each step we take, we leave our mark,<br>
 And in Abuja, we create a legacy so stark.        </div>
         <div class="copyright">©️ 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -744,6 +1332,90 @@ A soothing relief for every pain<br>
 A vision of beauty and grace
         </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -764,6 +1436,90 @@ Satisfying and nourishing,<br>
 Hot or cold.
         </div>
         <div class="copyright">©️ 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -788,6 +1544,90 @@ You embody the night,<br>
 My love for you will never die.
         </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -808,6 +1648,90 @@ The promise of an endless dream,<br>
 And a love that's bound to last.
         </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -831,6 +1755,90 @@ Where darkness and enigma begin.
 
         </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -856,6 +1864,90 @@ Blessings of love, so sweet and true,
  Your smile, so bright and full of life,
  Makes me feel so blessed and alive.</div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -878,6 +1970,90 @@ Unspoken tales, dreams cast away,<br>
 Echoes of the forgotten, a treasure to unearth.
         </div>
         <div class="copyright">Copyright ©️ Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
     <!-- Poem 17 -->
@@ -924,6 +2100,90 @@ Echoes of the forgotten, a treasure to unearth.
  Is but a feather in the end.
     </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -966,6 +2226,90 @@ Let us use every moment we're given,<Br>
 And make this life worth living for.
  </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 <!-- Poem 19 -->
@@ -1020,6 +2364,90 @@ For in your grace, we find our way,<Br>
 To love and kindness every day.
  </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
     
@@ -1058,6 +2486,90 @@ For life is fleeting, time is short,<Br>
 And there's a world of wonder to be sought.
  </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -1101,6 +2613,90 @@ And there's a world of wonder to be sought.
  Of all that we have gained at last.
 </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -1143,6 +2739,90 @@ And in the end, the sun will rise,<Br>
 To chase away the darkened skies.
 </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -1184,7 +2864,91 @@ And i am grateful for the space to grow,<Br>
 Into the person, I want to know.
 </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
-        <div class="poem-divider"></div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+       
+ <div class="poem-divider"></div>
     </article>
 
 
@@ -1223,6 +2987,90 @@ Oh, dear, how you perceived the grace of the city's sight,<Br>
 A luminous mirroring of the cosmos above, in this metropolis delight.
 </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -1257,6 +3105,90 @@ Deep within your heart, you understand,<Br>
 That love is everlasting and never a mistake!
 </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -1286,6 +3218,90 @@ Underneath, my heart is full of love.<Br>
 Respect begets respect. You'll reap what you sew.
 </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -1311,6 +3327,90 @@ So those who talk yet don't back up with action,<Br>
 Are not fit to lead a crowd for sure.
 </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -1349,6 +3449,90 @@ My world to suit my introverted soul,<Br>
 For in my quietness, I feel whole.
 </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -1362,16 +3546,100 @@ For in my quietness, I feel whole.
         <img src="https://i.pinimg.com/736x/4a/a3/4b/4aa34b2c71cc41e3d7ed8a4c9f6ae601.jpg" alt="Morning" class="poem-image">
         <div class="poem-content">
 
-     The morning sun rises with grace,
-Birds sing melodies to embrace,
+     The morning sun rises with grace,<br>
+Birds sing melodies to embrace,<br><br>
 
-Soft breeze whispers of love and peace,
-Flowers bloom in colors to seize,
+Soft breeze whispers of love and peace,<br>
+Flowers bloom in colors to seize,<br><br>
 
-Embrace the beauty of the day,
+Embrace the beauty of the day,<br>
 Love and joy, found in every way.
 </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -1387,32 +3655,116 @@ Love and joy, found in every way.
         <img src="https://i.pinimg.com/736x/34/d6/86/34d68654b5b6bec5fb5b9cc227545e64.jpg" alt="Warrior" class="poem-image">
         <div class="poem-content">
 
-    Salahuddin, a name that echoes through time,
-A warrior king, whose legend does shine,
-His courage and strength, a beacon of light,
-A symbol of honor, a gallant knight.
+    Salahuddin, a name that echoes through time,<br>
+A warrior king, whose legend does shine,<br>
+His courage and strength, a beacon of light,<br>
+A symbol of honor, a gallant knight.<br>
 
-Born in a land of turmoil and strife,
-He rose above, to lead a new life,
-A champion of justice, a defender of faith,
-His sword and heart, his people's safe.
+Born in a land of turmoil and strife,<br>
+He rose above, to lead a new life,<br>
+A champion of justice, a defender of faith,<br>
+His sword and heart, his people's safe.<br><br>
 
-With skill and might, he fought on the field,
-A fearless warrior, who refused to yield,
-Against the Crusaders, he stood tall,
-A defender of his people, who answered the call.
+With skill and might, he fought on the field,<br>
+A fearless warrior, who refused to yield,<br>
+Against the Crusaders, he stood tall,<br>
+A defender of his people, who answered the call.<br><br>
 
-His victories were many, his enemies few,
-His heart filled with mercy, his soul true,
-His legacy lives on, in stories and lore,
-A hero of the East, forevermore.
+His victories were many, his enemies few,<br>
+His heart filled with mercy, his soul true,<br>
+His legacy lives on, in stories and lore,<br>
+A hero of the East, forevermore.<br><br>
 
-Salahuddin, a name that inspires,
-A hero of honor, whose heart inspires,
-His legacy lives on, in tales and song,
+Salahuddin, a name that inspires,<br>
+A hero of honor, whose heart inspires,<br>
+His legacy lives on, in tales and song,<br>
 A symbol of hope, forever strong.
 </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -1426,32 +3778,116 @@ A symbol of hope, forever strong.
         <img src="https://i.pinimg.com/736x/b8/7a/19/b87a19d3d909c7fe2a7af00b1abf27a0.jpg" alt="Happy" class="poem-image">
         <div class="poem-content">
 
-     Give yourself permission to be happy,
-To let your heart soar and your spirit free.
-Don't let past sorrows or future worries,
-Keep you from living fully and feeling joyfully.
+     Give yourself permission to be happy,<br>
+To let your heart soar and your spirit free.<br>
+Don't let past sorrows or future worries,<br>
+Keep you from living fully and feeling joyfully.<br><br>
 
-Life is fleeting, and time flies fast,
-So cherish each moment and make it last.
-Find beauty in the simple things around,
-And let happiness in; let it be found.
+Life is fleeting, and time flies fast,<br>
+So cherish each moment and make it last.<br>
+Find beauty in the simple things around,<br>
+And let happiness in; let it be found.<br><br>
 
-Give yourself permission to laugh and play,
-To dance and sing, to enjoy each day.
-Don't let the weight of the world hold you down,
-Find joy in the moments, and let happiness abound.
+Give yourself permission to laugh and play,<br>
+To dance and sing, to enjoy each day.<br>
+Don't let the weight of the world hold you down,<br>
+Find joy in the moments, and let happiness abound.<br><br>
 
-Release the guilt and the shame that binds,
-Open your heart and free your mind.
-Choose happiness; let it be your guide,
-Embrace the journey and enjoy the ride.
+Release the guilt and the shame that binds,<br>
+Open your heart and free your mind.<br>
+Choose happiness; let it be your guide,<br>
+Embrace the journey and enjoy the ride.<br><br>
 
-Give yourself permission to be happy,
-To embrace the present, let the past be.
-Live life with purpose, with love and light,
+Give yourself permission to be happy,<br>
+To embrace the present, let the past be.<br>
+Live life with purpose, with love and light,<br>
 And happiness will be your constant sight.
 </div>
         <div class="copyright">© 2023 Hadiza Bagudu</div>
+<!-- ===== AUTO-REVIEW LINKS FOR ALL POEMS ===== -->
+<style>
+.review-link-auto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-top: 5px;
+}
+
+.review-link-auto:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.review-link-auto::before {
+  content: "✎";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.review-link-wrapper-auto {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .review-link-auto {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  // CONFIG — change these to match your site
+  var REVIEW_URL = "https://hadizab.github.io/Leave-a-Review/";  // ← your review page
+  var LINK_TEXT = "Leave a Review";                               // ← text on the button
+  var TARGET = "_blank";                                          // ← "_blank" for new tab, "_self" for same tab
+
+  // Find all poems and add a review link to each
+  var poems = document.querySelectorAll('.poem-card');
+
+  poems.forEach(function(poem) {
+    // Create wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'review-link-wrapper-auto';
+
+    // Create link
+    var link = document.createElement('a');
+    link.href = REVIEW_URL;
+    link.className = 'review-link-auto';
+    link.target = TARGET;
+    link.innerHTML = '<i>' + LINK_TEXT + '</i>';
+
+    // Put it together
+    wrapper.appendChild(link);
+
+    // Insert BEFORE the poem-divider (or at the end of the poem if no divider)
+    var divider = poem.querySelector('.poem-divider');
+    if (divider) {
+      poem.insertBefore(wrapper, divider);
+    } else {
+      poem.appendChild(wrapper);
+    }
+  });
+})();
+</script>
+
         <div class="poem-divider"></div>
     </article>
 
@@ -1843,11 +4279,13 @@ And happiness will be your constant sight.
 })();
 </script>
 
+
 <footer>
     <p>© 2025 Hadiza Bagudu. All rights reserved. — The Quiet Parts</p>
 </footer>
 
 <script>
+
     (function() {
         const mobileMenu = document.getElementById('mobileMenu');
         const navLinks = document.getElementById('navLinks');
